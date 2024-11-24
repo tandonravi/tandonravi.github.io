@@ -13,7 +13,8 @@ html {
 
 body {
   font-size: 1rem;
-  font-family: "Open Sans", Arial, sans-serif;
+  /* font-family: "Open Sans", Arial, sans-serif; */
+  font-family: "Roboto Condensed", Arial, sans-serif;
   background: #FFFFFF;
   color: var(--graphite);
 }
