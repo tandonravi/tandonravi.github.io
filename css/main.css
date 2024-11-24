@@ -16,7 +16,7 @@ html {
 body {
   font-size: 1rem;
   /* font-family: "Open Sans", Arial, sans-serif; */
-  font-family: "Roboto Condensed", Arial, sans-serif;
+  font-family: "Roboto Condensed", Arial, sans-serif !important;
   background: #FFFFFF;
   color: var(--graphite);
 }
@@ -65,7 +65,7 @@ body {
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   /*font-family: "Open Sans", Arial, sans-serif;*/
-    font-family: "Roboto Condensed", Arial, sans-serif;
+    font-family: "Roboto Condensed", Arial, sans-serif !important;
   /* color: #20364c; */
   color: var(--maroon) !important;
   font-weight: 600;
