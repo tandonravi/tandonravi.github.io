@@ -64,7 +64,8 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Open Sans", Arial, sans-serif;
+  /*font-family: "Open Sans", Arial, sans-serif;*/
+    font-family: "Roboto Condensed", Arial, sans-serif;
   /* color: #20364c; */
   color: var(--maroon) !important;
   font-weight: 600;
@@ -180,7 +181,8 @@ h4, h5, h6 {
 
 p, table, tr, td, ul, li, blockquote, nav, a, footer, dl, dt, dd {
   font-size: 1rem;
-  font-family: "Open Sans", Arial, sans-serif;
+  /*font-family: "Open Sans", Arial, sans-serif;*/
+  font-family: "Roboto Condensed", Arial, sans-serif;
   font-weight: 400;
 }
 
