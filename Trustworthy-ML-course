@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Metadata for the Webpage -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teaching | Ravi Tandon</title>
+
+
+  <!-- Favicons -- We recommend this site for generating favicons: https://www.favicon-generator.org/ -->
+  <link rel="apple-touch-icon" sizes="57x57" href="favicons_me/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="favicons_me/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="favicons_me/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="favicons_me/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="favicons_me/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="favicons_me/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="favicons_me/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="favicons_me/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicons_me/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicons_me/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicons_me/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicons_me/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicons_me/favicon-16x16.png">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Bootstrap CSS files-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+  <!-- jQuery UI CSS (optional) -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+  <!-- Google web fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+
+  
+  <!-- Font Awesome Web Icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  <!-- Academicons Courtesy of https://jpswalsh.github.io/academicons/ -->
+  <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+  <!-- Local styles -->
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    /* .panel-body {
+      background-color: #f6f7fb;
+    } */
+
+    /* #projects .panel:hover {
+      box-shadow: 3px 3px 10px lightgray;
+    } */
+
+    .panel-title {
+      font-weight: bold !important;
+    }
+
+    body {
+      font-family: 'Roboto Condensed', sans-serif; /* Apply Roboto Condensed globally */
+      font-size: 1.5rem !important; /* 1.5 times the root font size */
+
+    }
+  </style>
+
+</head>
+
+
+  
+<body>
+
+  <!-- navbar include -->
+  <div id="navbar-include"></div>
+
+  <div class="spacer-div-3 hidden-xs hidden-xs"></div>
+
+  <!-- Main content    -->
+  <div id="main-container" class="container">
+
+    <div class="row">
+      <div class="col-sm-12">
+        
+      </div>
+
+    </div>
+
+    <div class="row push-down-1" id="teaching">
+
+    <h3 class="push-down-3"><span>University of Arizona</span></h3>
+
+           <ul id="education">
+             <li>
+            <p><strong>Spring 2025 - ECE 696B: Trustworthy Machine Learning <span style="color: #cc2a36;">(New course)</span></strong><br>
+            </p>
+          </li>
+             <li>
+            <p><strong>Fall 2024 - ECE 503: Probability and Random Processes for Engineering Applications</strong><br>
+            </p>
+          </li>
+          <li>
+            <p><strong>Spring 2024 - ECE 636: Information Theory</strong><br>
+              </p>
+          </li>
+          <li>
+            <p><strong>Fall 2023 - ECE 503: Probability and Random Processes for Engineering Applications</strong><br>
+              </p>
+          </li>
+          <li>
+            <p><strong>Spring 2022 - ECE 636: Information Theory</strong><br>
+              </p>
+          </li>
+           <li>
+            <p><strong>Fall 2021 - ECE 503: Probability and Random Processes for Engineering Applications</strong><br>
+              </p>
+          </li>
+          <li>
+            <p><strong>Spring 2021 - ECE 696B: Advanced Topics in Machine Learning and Applications <span style="color: #cc2a36;">(New course)</span></strong><br>
+            </p>
+          </li>
+          <li>
+            <p><strong>Fall 2020 - ECE 503: Probability and Random Processes for Engineering Applications</strong><br>
+              </p>
+          </li>
+          <li>
+            <p><strong>Spring 2020 - ECE 636: Information Theory</strong><br>
+            </p>
+          </li>
+          <li>
+            <p><strong>Fall 2019 - ECE 696B: Optimization for Machine Learning <span style="color: #cc2a36;">(New course)</span></strong><br>
+            </p>
+          </li>
+           <li>
+            <p><strong>Fall 2018 - ECE 340A: Introduction to Communications</strong><br>
+            </p>
+          </li>
+          <li>
+            <p><strong>Spring 2018 - ECE 636: Information Theory</strong><br>
+            </p>
+          </li>
+          <li>
+            <p><strong>Fall 2017 - ECE 503: Probability and Random Processes for Engineering Applications</strong><br>
+            </p>
+          </li>
+          <li>
+            <p><strong>Spring 2017 - ECE 696B: Network Information Theory <span style="color: #cc2a36;">(New course)</span></strong><br>
+            </p>
+          </li>
+          <li>
+            <p><strong>Fall 2016 - ECE 503: Probability and Random Processes for Engineering Applications</strong><br>
+            </p>
+          </li>
+          <li>
+            <p><strong>Spring 2016 - ECE 340A: Introduction to Communications</strong><br>
+            </p>
+          </li>
+          <li>
+            <p><strong>Fall 2015 - ECE 503: Probability and Random Processes for Engineering Applications</strong><br>
+            </p>
+          </li>
+<h3 class="push-down-3"><span>Virginia Tech</span></h3>
+
+           <ul id="education">
+          <li>
+            <p><strong>Spring 2015 - CS 5525 Data Analytics (lectures on dimensionality reduction, HMMs)</strong><br>
+            </p>
+          </li>
+           <li>
+            <p><strong>Fall 2013 - ECE 5654, Digital Communications II: Advanced Theory and Analysis</strong><br>
+            </p>
+          </li>
+
+
+
+
+
+  <!-- Back-to-top button -->
+  <a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
+
+  <!-- footer include -->
+  <div w3-include-html="footer.html"></div>
+
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Bootstrap JS Library -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+  <!-- html file include script | used for navbar and footer -->
+  <script src="js/w3data.js"></script>
+  <script>
+    w3IncludeHTML()
+  </script>
+
+  <!-- Local scripts -->
+  <script src="js/main.js"></script>
+
+  <script>
+
+  $(document).ready(function() {
+
+    $("#navbar-include").load("navbar.html", function() {
+
+      $("#home").removeClass("active");
+      $("#experience").addClass("active");
+
+    });
+
+  });
+
+
+  </script>
+
+</body>
+
+</html>
