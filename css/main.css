@@ -53,6 +53,10 @@ body {
   text-align: justify;
 }
 
+.publication-list {
+  text-align: justify;
+}
+
 /* Degree area -------------------------------------------------------------------- */
 #education {
   list-style-type: none;
