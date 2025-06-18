@@ -57,6 +57,15 @@ body {
   text-align: justify;
 }
 
+.publication-list ol {
+  padding-left: 20px;
+}
+
+.publication-list li {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
 /* Degree area -------------------------------------------------------------------- */
 #education {
   list-style-type: none;
