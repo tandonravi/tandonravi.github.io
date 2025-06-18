@@ -48,6 +48,11 @@ body {
   cursor: pointer;
 }
 
+.biography-text {
+  display: block;
+  text-align: justify;
+}
+
 /* Degree area -------------------------------------------------------------------- */
 #education {
   list-style-type: none;
