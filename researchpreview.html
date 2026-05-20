@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research | Ravi Tandon</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap');
+
+    :root {
+      --bg: #f7f5f0;
+      --surface: #fffdf8;
+      --surface-soft: #f2efe7;
+      --ink: #1f1f1d;
+      --muted: #65645f;
+      --soft: #8a8982;
+      --line: #dedbd2;
+      --accent: #8f3f2b;
+      --accent-soft: #f4e7df;
+      --theme-card: linear-gradient(135deg, #f6eadf 0%, #efe8dd 48%, #e8dfd2 100%);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(31, 31, 29, 0.24);
+      transition: color 140ms ease, border-color 140ms ease;
+    }
+
+    a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .page {
+      width: min(1080px, calc(100% - 40px));
+      margin: 32px auto;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+    }
+
+    .topbar {
+      padding: 24px 72px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .topbar a {
+      color: var(--muted);
+      width: fit-content;
+    }
+
+    .hero {
+      padding: 56px 72px 48px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h1 {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(56px, 7vw, 88px);
+      line-height: 1.0;
+      letter-spacing: -0.045em;
+      margin: 0 0 22px;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .hero-note {
+      margin: 0;
+      max-width: 820px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .theme-nav {
+      padding: 28px 72px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    .theme-pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 12px 14px;
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 18px;
+      line-height: 1.12;
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      background: #f2efe7;
+      border-color: #d8d2c8;
+      box-shadow: 0 1px 2px rgba(31, 31, 29, 0.03);
+    }
+
+    .theme-pill:hover {
+      text-decoration: none;
+      background: #eee9df;
+      border-color: #cfc7ba;
+      box-shadow: 0 4px 14px rgba(31, 31, 29, 0.06);
+    }
+
+    .theme-section {
+      padding: 56px 72px;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 96px;
+    }
+
+    .theme-section:last-of-type { border-bottom: none; }
+
+    .theme-header { margin-bottom: 28px; }
+
+    .theme-heading-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .theme-title {
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(34px, 4vw, 48px);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .top-link {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .top-link:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .paper-list {
+      display: grid;
+      gap: 14px;
+      max-width: 860px;
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    .paper {
+      border: 1px solid #d2c6b8;
+      border-radius: 18px;
+      background: var(--theme-card);
+      padding: 15px 21px 15px;
+    }
+
+    .paper-title {
+      font-size: 16.5px;
+      line-height: 1.28;
+      font-weight: 650;
+      margin: 0 0 6px;
+      letter-spacing: -0.015em;
+    }
+
+    .paper-meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.42;
+      font-weight: 500;
+    }
+
+    .paper-venue {
+      color: var(--muted);
+      font-size: 13.8px;
+      font-weight: 600;
+      font-style: italic;
+    }
+
+    .footer-nav {
+      padding: 28px 72px 72px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 12px 16px;
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .footer-nav a:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .floating-top {
+      position: fixed;
+      right: 28px;
+      bottom: 28px;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.88);
+      color: var(--muted);
+      font-size: 20px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 10px 28px rgba(31, 31, 29, 0.10);
+      backdrop-filter: blur(10px);
+      z-index: 20;
+    }
+
+    .floating-top:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-color: #d5c3b7;
+      text-decoration: none;
+    }
+
+    @media (max-width: 860px) {
+      .page { width: min(100% - 24px, 1080px); margin: 16px auto; border-radius: 22px; }
+      .topbar, .hero, .theme-section, .theme-nav, .footer-nav { padding-left: 28px; padding-right: 28px; }
+      .topbar { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .hero { padding-top: 44px; padding-bottom: 38px; }
+      .theme-nav { grid-template-columns: 1fr 1fr; position: static; }
+      .theme-section { padding-top: 42px; padding-bottom: 42px; scroll-margin-top: 20px; }
+      .theme-heading-row { align-items: flex-start; }
+      .paper-list { max-width: none; }
+      .footer-nav { padding-bottom: 42px; }
+    }
+
+    @media (max-width: 520px) {
+      .theme-nav { grid-template-columns: 1fr; }
+      .floating-top { right: 18px; bottom: 18px; width: 44px; height: 44px; }
+    }
+
+  </style>
+</head>
+<body>
+  <main class="page" id="top">
+    <div class="topbar">
+      <a href="index.html">← Ravi Tandon</a>
+      <a href="mailto:tandonr@arizona.edu">tandonr@arizona.edu</a>
+    </div>
+
+    <section class="hero">
+      <h1>Research</h1>
+      <p class="hero-note">
+        My research is organized around four connected themes: privacy and security, trustworthy AI/ML, efficient AI systems, and information theory. Across these themes, I am interested in developing mathematical foundations, algorithms, and practical systems for AI that are reliable, private, efficient, and grounded in fundamental limits.
+      </p>
+    </section>
+
+    <nav class="theme-nav" aria-label="Research themes">
+      <a class="theme-pill" href="#privacy-security">Privacy &amp; Security</a>
+      <a class="theme-pill" href="#trustworthy-ai-ml">Trustworthy AI/ML</a>
+      <a class="theme-pill" href="#efficient-ai-systems">Efficient AI Systems</a>
+      <a class="theme-pill" href="#information-theory">Information Theory</a>
+    </nav>
+
+    <section class="theme-section" id="privacy-security">
+      <div class="theme-header">
+        <div class="theme-heading-row">
+          <h2 class="theme-title">Privacy &amp; Security</h2>
+          <a class="top-link" href="#top" aria-label="Back to top">↑ Top</a>
+        </div>
+      </div>
+
+      <div class="paper-list">
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=STAMP%3A%20Selective%20Task-Aware%20Mechanism%20for%20Text%20Privacy" target="_blank" rel="noopener">STAMP: Selective Task-Aware Mechanism for Text Privacy</a></h3>
+          <p class="paper-meta">F. Tian, P. Bhattacharjee, H. Hanson, G. D Rubin, J. Y. Lo and R. Tandon<br /><span class="paper-venue">Conference of the European Chapter of the Association for Computational Linguistics (EACL), March 2026.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://arxiv.org/pdf/2508.06783" target="_blank" rel="noopener">PROPS: Progressively Private Self-alignment of Large Language Models</a></h3>
+          <p class="paper-meta">N. Teku, F. Tian, P. Bhattacharjee, S. Chakraborty, A. S. Bedi and R. Tandon<br /><span class="paper-venue">Transactions on Machine Learning Research (TMLR), December 2025.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Learning%20to%20Diagnose%20Privately%3A%20DP-Powered%20LLMs%20for%20Radiology%20Report%20Classification" target="_blank" rel="noopener">Learning to Diagnose Privately: DP-Powered LLMs for Radiology Report Classification</a></h3>
+          <p class="paper-meta">P. Bhattacharjee, F. Tian, G. D. Rubin, J. Y. Lo, N. Merchant, H. Hanson, J. Gounley and R. Tandon<br /><span class="paper-venue">IEEE Access (accepted), 2026.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=CURATE%3A%20Scaling-up%20Differentially%20Private%20Causal%20Graph%20Discovery" target="_blank" rel="noopener">CURATE: Scaling-up Differentially Private Causal Graph Discovery</a></h3>
+          <p class="paper-meta">P. Bhattacharjee and R. Tandon<br /><span class="paper-venue">Entropy, Volume 26, Issue 11, November 2024.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Online%20Context-aware%20Streaming%20Data%20Release%20with%20Sequence%20Information%20Privacy" target="_blank" rel="noopener">Online Context-aware Streaming Data Release with Sequence Information Privacy</a></h3>
+          <p class="paper-meta">B. Jiang, M. Li and R. Tandon<br /><span class="paper-venue">IEEE Transactions on Information Forensics and Security, Vol. 19: 4390 - 4405, March, 2024.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Adaptive%20Privacy%20for%20Differentially%20Private%20Causal%20Graph%20Discovery" target="_blank" rel="noopener">Adaptive Privacy for Differentially Private Causal Graph Discovery</a></h3>
+          <p class="paper-meta">P. Bhattacharjee and R. Tandon<br /><span class="paper-venue">IEEE Machine Learning for Signal Processing Workshop (MLSP), London, UK, September 2024.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Inference%20Privacy%3A%20Properties%20and%20Mechanisms" target="_blank" rel="noopener">Inference Privacy: Properties and Mechanisms</a></h3>
+          <p class="paper-meta">F. Tian and R. Tandon<br /><span class="paper-venue">57th Asilomar Conference on Signals, Systems, and Computers, Pacific Grove, CA, October 2024.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Answering%20Count%20Queries%20for%20Genomic%20Data%20with%20Perfect%20Privacy" target="_blank" rel="noopener">Answering Count Queries for Genomic Data with Perfect Privacy</a></h3>
+          <p class="paper-meta">B. Jiang, M. Seif, M. Li and R. Tandon<br /><span class="paper-venue">IEEE Transactions on Information Forensics and Security, Vol. 18: 3862 - 3875, June, 2023.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Topological%20Interference%20Management%20with%20Confidential%20Messages" target="_blank" rel="noopener">Topological Interference Management with Confidential Messages</a></h3>
+          <p class="paper-meta">J. Mutangana and R. Tandon<br /><span class="paper-venue">IEEE Transactions on Information Theory, Vol. 68(11): 7233 - 7253, November 2022.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Private%20Retrieval%2C%20Computing%20and%20Learning%3A%20Recent%20Progress%20and%20Future%20Challenges" target="_blank" rel="noopener">Private Retrieval, Computing and Learning: Recent Progress and Future Challenges</a></h3>
+          <p class="paper-meta">S. Ulukus, S. Avestimehr, M. Gastpar, S. Jafar, R. Tandon and C. Tian<br /><span class="paper-venue">IEEE Journal on Selected Areas in Communications (JSAC), 40(3): 729-748, March, 2022.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Local%20Information%20Privacy%20and%20Its%20Application%20to%20Privacy-Preserving%20Data%20Aggregation" target="_blank" rel="noopener">Local Information Privacy and Its Application to Privacy-Preserving Data Aggregation</a></h3>
+          <p class="paper-meta">B. Jiang, M. Li and R. Tandon<br /><span class="paper-venue">IEEE Transactions on Dependable and Secure Computing, 19(3): 1918-1935, June 2022.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Differentially%20Private%20Community%20Detection%20for%20Stochastic%20Block%20Models" target="_blank" rel="noopener">Differentially Private Community Detection for Stochastic Block Models</a></h3>
+          <p class="paper-meta">M. Seif, D. Nguyen, A. Vullikanti and R. Tandon<br /><span class="paper-venue">International Conference on Machine Learning (ICML), Baltimore, MD, July 2022.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Differentially%20Private%20Federated%20Learning%20with%20Drift%20Control" target="_blank" rel="noopener">Differentially Private Federated Learning with Drift Control</a></h3>
+          <p class="paper-meta">W. Chang, M. Seif and R. Tandon<br /><span class="paper-venue">Conference on Information Sciences and Systems (CISS), Princeton, NJ, March 2022.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Privacy%20Amplification%20for%20Federated%20Learning%20via%20User%20Sampling%20and%20Wireless%20Aggregation" target="_blank" rel="noopener">Privacy Amplification for Federated Learning via User Sampling and Wireless Aggregation</a></h3>
+          <p class="paper-meta">M. Seif, W. Chang and R. Tandon<br /><span class="paper-venue">IEEE Journal on Selected Areas in Communications (JSAC), 39(12): 3821-3835, December 2021.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Asymmetric%20Leaky%20Private%20Information%20Retrieval" target="_blank" rel="noopener">Asymmetric Leaky Private Information Retrieval</a></h3>
+          <p class="paper-meta">I. Samy, M. Attia, R. Tandon and L. Lazos<br /><span class="paper-venue">IEEE Transactions on Information Theory, 67(8): 5352-5369, August 2021.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Context-Aware%20Local%20Information%20Privacy" target="_blank" rel="noopener">Context-Aware Local Information Privacy</a></h3>
+          <p class="paper-meta">B. Jiang, M. Seif, R. Tandon and M. Li<br /><span class="paper-venue">IEEE Transactions on Information Forensics and Security, Vol. 16: 3694-3708, June 2021.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Capacity%20of%20Latent%20Variable%20Private%20Information%20Retrieval" target="_blank" rel="noopener">On the Capacity of Latent Variable Private Information Retrieval</a></h3>
+          <p class="paper-meta">I. Samy, M. Attia, R. Tandon and L. Lazos<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Melbourne, Australia, July 2021.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Wiretap%20Channel%20with%20Latent%20Variable%20Secrecy" target="_blank" rel="noopener">Wiretap Channel with Latent Variable Secrecy</a></h3>
+          <p class="paper-meta">J. Mutangana, R. Tandon, Z. Goldfeld and S. Shamai<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Melbourne, Australia, July 2021.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Privacy%20Amplification%20for%20Federated%20Learning%20via%20User%20Sampling%20and%20Wireless%20Aggregation" target="_blank" rel="noopener">Privacy Amplification for Federated Learning via User Sampling and Wireless Aggregation</a></h3>
+          <p class="paper-meta">M. Seif, W. Chang and R. Tandon<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Melbourne, Australia, July 2021.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=The%20Capacity%20of%20Private%20Information%20Retrieval%20from%20Uncoded%20Storage%20Constrained%20Databases" target="_blank" rel="noopener">The Capacity of Private Information Retrieval from Uncoded Storage Constrained Databases</a></h3>
+          <p class="paper-meta">M. Attia, D. Kumar and R. Tandon<br /><span class="paper-venue">IEEE Transactions on Information Theory, 66(11): 6617-6634, November 2020.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Aggregation-based%20Location%20Privacy%3A%20An%20Information%20Theoretic%20Approach" target="_blank" rel="noopener">Aggregation-based Location Privacy: An Information Theoretic Approach</a></h3>
+          <p class="paper-meta">W. Zhang, B. Jiang, M. Li, R. Tandon, Q. Liu and H. Li<br /><span class="paper-venue">Computers and Security, Vol. 97, July 2020.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Latent-variable%20Private%20Information%20Retrieval" target="_blank" rel="noopener">Latent-variable Private Information Retrieval</a></h3>
+          <p class="paper-meta">I. Samy, M. Attia, R. Tandon and L. Lazos<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Los Angeles, June, 2020.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Wireless%20Federated%20Learning%20with%20Local%20Differential%20Privacy" target="_blank" rel="noopener">Wireless Federated Learning with Local Differential Privacy</a></h3>
+          <p class="paper-meta">M. Seif, R. Tandon and M. Li<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Los Angeles, June, 2020.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20Secure%20Topological%20Interference%20Management%20for%20Half-rate-feasible%20Networks" target="_blank" rel="noopener">On Secure Topological Interference Management for Half-rate-feasible Networks</a></h3>
+          <p class="paper-meta">J. Mutangana and R. Tandon<br /><span class="paper-venue">IEEE International Conference on Communications (ICC), Dublin, Ireland, June, 2020.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Secure%20Retrospective%20Interference%20Alignment" target="_blank" rel="noopener">Secure Retrospective Interference Alignment</a></h3>
+          <p class="paper-meta">M. Seif, R. Tandon and M. Li<br /><span class="paper-venue">Entropy , 21(11): 1092, November 2019.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Blind%20MIMO%20Cooperative%20Jamming%3A%20Secrecy%20via%20ISI%20Heterogeneity%20without%20CSIT" target="_blank" rel="noopener">Blind MIMO Cooperative Jamming: Secrecy via ISI Heterogeneity without CSIT</a></h3>
+          <p class="paper-meta">J. Mutangana and R. Tandon<br /><span class="paper-venue">IEEE Transactions on Information Forensics and Security (TIFS), Vol. 15, 447-461, June 2019.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Online%20Location%20Trace%20Privacy%3A%20An%20Information%20Theoretic%20Approach" target="_blank" rel="noopener">Online Location Trace Privacy: An Information Theoretic Approach</a></h3>
+          <p class="paper-meta">W. Zhang, M. Li, R. Tandon, and H. Li<br /><span class="paper-venue">IEEE Transactions on Information Forensics and Security (TIFS), 14(1): 235-250, Jan. 2019.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Upload%20versus%20Download%20Cost%20for%20Secure%20and%20Private%20Matrix%20Multiplication" target="_blank" rel="noopener">On the Upload versus Download Cost for Secure and Private Matrix Multiplication</a></h3>
+          <p class="paper-meta">W. Chang and R. Tandon<br /><span class="paper-venue">IEEE Information Theory Workshop (ITW), Visby, Sweden, August, 2019.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Capacity%20of%20Leaky%20Private%20Information%20Retrieval" target="_blank" rel="noopener">On the Capacity of Leaky Private Information Retrieval</a></h3>
+          <p class="paper-meta">I. Samy, R. Tandon and L. Lazos<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Paris, France, July 2019.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Interference%20Channels%20with%20Confidential%20Messages%3A%20Leveraging%20OFDM%20to%20Scale%20up%20Secure%20DoF%20with%20No%20CSIT" target="_blank" rel="noopener">Interference Channels with Confidential Messages: Leveraging OFDM to Scale up Secure DoF with No CSIT</a></h3>
+          <p class="paper-meta">J. Mutangana and R. Tandon<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Paris, France, July 2019.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Context%20Aware%20Laplacian%20Mechanism%20for%20Local%20Information%20Privacy" target="_blank" rel="noopener">Context Aware Laplacian Mechanism for Local Information Privacy</a></h3>
+          <p class="paper-meta">M. Seif, R. Tandon and M. Li<br /><span class="paper-venue">IEEE Information Theory Workshop (ITW), Visby, Sweden, August 2019.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Local%20Information%20Privacy%20with%20Bounded%20Prior" target="_blank" rel="noopener">Local Information Privacy with Bounded Prior</a></h3>
+          <p class="paper-meta">B. Jiang, M. Li and R. Tandon<br /><span class="paper-venue">IEEE International Conference on Communications (ICC), Shanghai, China, May 2019.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Capacity%20of%20Secure%20Distributed%20Matrix%20Multiplication" target="_blank" rel="noopener">On the Capacity of Secure Distributed Matrix Multiplication</a></h3>
+          <p class="paper-meta">W. Chang and R. Tandon<br /><span class="paper-venue">IEEE Global Communications Conference (GLOBECOM), Abu Dhabi, December, 2018.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Capacity%20of%20Secure%20Distributed%20FFT" target="_blank" rel="noopener">On the Capacity of Secure Distributed FFT</a></h3>
+          <p class="paper-meta">W. Chang and R. Tandon<br /><span class="paper-venue">IEEE Global Conference on Signal and Information Processing (GlobalSIP), Anaheim, CA, November, 2018.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Interference%20Channels%20with%20Confidential%20Messages%3A%20Scaling%20up%20the%20Secure%20Degrees%20of%20Freedom%20with%20No%20CSIT" target="_blank" rel="noopener">Interference Channels with Confidential Messages: Scaling up the Secure Degrees of Freedom with No CSIT</a></h3>
+          <p class="paper-meta">J. Mutangana and R. Tandon<br /><span class="paper-venue">52nd Asilomar Conference on Signals, Systems and Computers, Pacific Grove, CA, November, 2018.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=The%20Capacity%20of%20Uncoded%20Storage%20Constrained%20PIR" target="_blank" rel="noopener">The Capacity of Uncoded Storage Constrained PIR</a></h3>
+          <p class="paper-meta">M. Attia, D. Kumar, and R. Tandon<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Vail, Colorado, June 2018.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Secure%20Degrees%20of%20Freedom%20of%20the%20K-user%20Interference%20Channel%20with%20Delayed%20CSIT" target="_blank" rel="noopener">On the Secure Degrees of Freedom of the K-user Interference Channel with Delayed CSIT</a></h3>
+          <p class="paper-meta">M. Seif, R. Tandon and M. Li<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Vail, Colorado, June 2018.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Context-Aware%20Data%20Aggregation%20with%20Localized%20Information%20Privacy" target="_blank" rel="noopener">Context-Aware Data Aggregation with Localized Information Privacy</a></h3>
+          <p class="paper-meta">B. Jiang, M. Li and R. Tandon<br /><span class="paper-venue">IEEE Conference on Communications and Network Security (CNS), Beijing, China, June 2018.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=PIR%20from%20Storage%20Constrained%20Databases%20-%20Coded%20Caching%20meets%20PIR" target="_blank" rel="noopener">PIR from Storage Constrained Databases - Coded Caching meets PIR</a></h3>
+          <p class="paper-meta">R. Tandon, M. Abdul-Wahid, F. Almoualem, and D. Kumar<br /><span class="paper-venue">IEEE International Conference on Communications (ICC), Kansas City, MO, May 2018.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Secure%20Degrees%20of%20Freedom%20of%202x2x2%20Multi-Hop%20Network%20with%20Untrusted%20Relays" target="_blank" rel="noopener">On the Secure Degrees of Freedom of 2x2x2 Multi-Hop Network with Untrusted Relays</a></h3>
+          <p class="paper-meta">M. Seif, R. Tandon and M. Li<br /><span class="paper-venue">IEEE International Conference on Communications (ICC), Kansas City, MO, May 2018.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Secure%20Degrees%20of%20Freedom%20Region%20of%20the%20Two-User%20MISO%20Broadcast%20Channel%20with%20Alternating%20CSIT" target="_blank" rel="noopener">Secure Degrees of Freedom Region of the Two-User MISO Broadcast Channel with Alternating CSIT</a></h3>
+          <p class="paper-meta">P. Mukherjee, R. Tandon and S. Ulukus<br /><span class="paper-venue">IEEE Transactions on Information Theory, 63(6): 3823-3853, June 2017.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=The%20Capacity%20of%20Cache%20Aided%20Private%20Information%20Retrieval" target="_blank" rel="noopener">The Capacity of Cache Aided Private Information Retrieval</a></h3>
+          <p class="paper-meta">R. Tandon<br /><span class="paper-venue">55th Allerton Conference on Communications, Control and Computing, Monticello, IL, October 2017.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Towards%20the%20Exact%20Rate-Memory%20Trade-Off%20for%20Uncoded%20Caching%20with%20Secure%20Delivery" target="_blank" rel="noopener">Towards the Exact Rate-Memory Trade-Off for Uncoded Caching with Secure Delivery</a></h3>
+          <p class="paper-meta">M. Bahrami, M. Attia, R. Tandon and B. Vasic<br /><span class="paper-venue">55th Allerton Conference on Communications, Control and Computing, Monticello, IL, October 2017.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Blind%20Cooperative%20Jamming%3A%20Exploiting%20ISI%20Heterogeneity%20to%20Achieve%20Positive%20Secure%20DoF" target="_blank" rel="noopener">Blind Cooperative Jamming: Exploiting ISI Heterogeneity to Achieve Positive Secure DoF</a></h3>
+          <p class="paper-meta">J. Mutangana, R. Tandon and N. Lee<br /><span class="paper-venue">IEEE Global Communications Conference (GLOBECOM), Singapore, December, 2017.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=MIMO%20Wiretap%20Channel%20with%20ISI%20Heterogeneity%20-%20Achieving%20Secure%20DoF%20with%20no%20CSI" target="_blank" rel="noopener">MIMO Wiretap Channel with ISI Heterogeneity - Achieving Secure DoF with no CSI</a></h3>
+          <p class="paper-meta">J. Mutangana, D. Kumar and R. Tandon<br /><span class="paper-venue">51st Asilomar Conference on Signals, Systems and Computers, Pacific Grove, CA, November, 2017.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Secure%20Degrees%20of%20Freedom%20of%20Partially%20Connected%20Networks%20with%20no%20CSIT" target="_blank" rel="noopener">On the Secure Degrees of Freedom of Partially Connected Networks with no CSIT</a></h3>
+          <p class="paper-meta">M. Attia and R. Tandon<br /><span class="paper-venue">IEEE International Conference on Communications (ICC), Paris, France, May 2017.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Towards%20Optimal%20Secure%20Distributed%20Storage%20Systems%20with%20Exact%20Repair" target="_blank" rel="noopener">Towards Optimal Secure Distributed Storage Systems with Exact Repair</a></h3>
+          <p class="paper-meta">R. Tandon, S Amuru, T. Charles Clancy and R. M. Buehrer<br /><span class="paper-venue">IEEE Transactions on Information Theory, 62(6): 3477-3492, June 2016.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Fundamental%20Limits%20of%20Caching%20with%20Secure%20Delivery" target="_blank" rel="noopener">Fundamental Limits of Caching with Secure Delivery</a></h3>
+          <p class="paper-meta">A. Sengupta, R. Tandon and T. Charles Clancy<br /><span class="paper-venue">IEEE Transactions on Information Forensics and Security, 10(2): 355-370, Feb 2015.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Symmetric%202-User%20Deterministic%20Interference%20Channel%20with%20Confidential%20Messages" target="_blank" rel="noopener">On the Symmetric 2-User Deterministic Interference Channel with Confidential Messages</a></h3>
+          <p class="paper-meta">C. Geng, R. Tandon, and Syed A. Jafar<br /><span class="paper-venue">IEEE Global Communications Conference (GLOBECOM), San Diego, CA, December 2015.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Secrecy%20for%20MISO%20Broadcast%20Channel%20with%20Heterogeneous%20CSIT" target="_blank" rel="noopener">Secrecy for MISO Broadcast Channel with Heterogeneous CSIT</a></h3>
+          <p class="paper-meta">P. Mukherjee, R. Tandon and S. Ulukus<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Hong Kong, June 2015.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Secrecy%20for%20MISO%20Broadcast%20Channels%20via%20Alternating%20CSIT" target="_blank" rel="noopener">Secrecy for MISO Broadcast Channels via Alternating CSIT</a></h3>
+          <p class="paper-meta">P. Mukherjee, R. Tandon and S. Ulukus<br /><span class="paper-venue">IEEE International Conference on Communications (ICC), London, UK, June 2015.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Retroactive%20Anti-Jamming%20for%20MISO%20Broadcast%20Channels" target="_blank" rel="noopener">Retroactive Anti-Jamming for MISO Broadcast Channels</a></h3>
+          <p class="paper-meta">S. Amuru, R. Tandon, R. M. Buehrer and T. Charles Clancy<br /><span class="paper-venue">IEEE Transactions on Information Theory, 60(6): 3593-3619, June 2014.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=New%20Bounds%20for%20Distributed%20Storage%20Systems%20with%20Secure%20Repair" target="_blank" rel="noopener">New Bounds for Distributed Storage Systems with Secure Repair</a></h3>
+          <p class="paper-meta">R. Tandon and S. Mohajer<br /><span class="paper-venue">52nd Allerton Conference on Communications, Control and Computing, Monticello, IL, October 2014.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20Multi-User%20MISO%20Wiretap%20Channels%20with%20Delayed%20CSIT" target="_blank" rel="noopener">On Multi-User MISO Wiretap Channels with Delayed CSIT</a></h3>
+          <p class="paper-meta">R. Tandon, P. Piantanida and Shlomo Shamai<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Honolulu, HI, USA, July 2014.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Decentralized%20Caching%20with%20Secure%20Delivery" target="_blank" rel="noopener">Decentralized Caching with Secure Delivery</a></h3>
+          <p class="paper-meta">A. Sengupta, R. Tandon and T. Charles Clancy<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Honolulu, HI, USA, July 2014.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=MISO%20Broadcast%20Channels%20with%20Confidential%20Messages%20and%20Alternating%20CSIT" target="_blank" rel="noopener">MISO Broadcast Channels with Confidential Messages and Alternating CSIT</a></h3>
+          <p class="paper-meta">P. Mukherjee, R. Tandon and S. Ulukus<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Honolulu, HI, USA, July 2014.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20Secure%20Distributed%20Storage%20Systems%20with%20Exact%20Repair" target="_blank" rel="noopener">On Secure Distributed Storage Systems with Exact Repair</a></h3>
+          <p class="paper-meta">R. Tandon, S. Amuru, T. Charles Clancy and R. M. Buehrer<br /><span class="paper-venue">IEEE International Conference on Communications (ICC), Sydney, Australia, June 2014.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Fundamental%20Limits%20of%20Caching%20with%20Secure%20Delivery" target="_blank" rel="noopener">Fundamental Limits of Caching with Secure Delivery</a></h3>
+          <p class="paper-meta">A. Sengupta, R. Tandon and T. Charles Clancy<br /><span class="paper-venue">IEEE ICC (Workshop on Wireless PHY Layer Security), Sydney, Australia, June 2014.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Secure%20Caching%20with%20Non%20Uniform%20Demands" target="_blank" rel="noopener">Secure Caching with Non Uniform Demands</a></h3>
+          <p class="paper-meta">A. Sengupta, R. Tandon and T. Charles Clancy<br /><span class="paper-venue">IEEE GWS (Global Wireless Summit), Aalborg, Denmark, May 2014.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Distributed%20Storage%20Systems%20with%20Secure%20and%20Exact%20Repair%20-%20New%20Results%28invited%29" target="_blank" rel="noopener">Distributed Storage Systems with Secure and Exact Repair - New Results(invited)</a></h3>
+          <p class="paper-meta">R. Tandon, S. Amuru, T. Charles Clancy and R. M. Buehrer<br /><span class="paper-venue">Information Theory and Applications Workshop (ITA), San Diego, CA, February 2014.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Discriminatory%20Lossy%20Source%20Coding%3A%20Side%20Information%20Privacy" target="_blank" rel="noopener">Discriminatory Lossy Source Coding: Side Information Privacy</a></h3>
+          <p class="paper-meta">R. Tandon, L. Sankar and H. Vincent Poor<br /><span class="paper-venue">IEEE Transactions on Information Theory, 59(9): 5665-5677, Sept. 2013.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Secure%20Source%20Coding%20with%20a%20Helper" target="_blank" rel="noopener">Secure Source Coding with a Helper</a></h3>
+          <p class="paper-meta">R. Tandon, S. Ulukus and K. Ramchandran<br /><span class="paper-venue">IEEE Transactions on Information Theory, 59(4): 2178-2187, April 2013.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Jamming%20Countermeasures%20for%20Multi-User%20MISO%20Broadcast%20Channels%20-%20a%20DoF%20perspective" target="_blank" rel="noopener">Jamming Countermeasures for Multi-User MISO Broadcast Channels - a DoF perspective</a></h3>
+          <p class="paper-meta">S. Amuru, R. Tandon, R. M. Buehrer and T. Charles Clancy<br /><span class="paper-venue">IEEE Global Communications Conference (GLOBECOM), Atlanta, GA, December 2013.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Interference%20Alignment%20for%20MISO%20Broadcast%20Channels%20under%20Jamming%20attacks" target="_blank" rel="noopener">Interference Alignment for MISO Broadcast Channels under Jamming attacks</a></h3>
+          <p class="paper-meta">S. Amuru, R. Tandon, R. M. Buehrer and T. Charles Clancy<br /><span class="paper-venue">47th Asilomar Conference on Signals, Systems and Computers (Asilomar), Pacific Grove, CA, November 2013.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Discriminatory%20Lossy%20Source%20Coding%3A%20Side%20Information%20Privacy%20%28Best%20Paper%20Award%29" target="_blank" rel="noopener">Discriminatory Lossy Source Coding: Side Information Privacy (Best Paper Award)</a></h3>
+          <p class="paper-meta">R. Tandon, L. Sankar, and H. Vincent Poor<br /><span class="paper-venue">IEEE Global Communications Conference (GLOBECOM), Houston, TX, December 2011.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Multi-User%20Privacy%3A%20The%20Gray-Wyner%20System%20and%20Generalized%20Common%20Information" target="_blank" rel="noopener">Multi-User Privacy: The Gray-Wyner System and Generalized Common Information</a></h3>
+          <p class="paper-meta">R. Tandon, L. Sankar, and H. Vincent Poor<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), St. Petersburg, Russia, August 2011.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Competitive%20Privacy%20in%20the%20Smart%20Grid%3A%20An%20Information-theoretic%20Approach" target="_blank" rel="noopener">Competitive Privacy in the Smart Grid: An Information-theoretic Approach</a></h3>
+          <p class="paper-meta">L. Sankar, S. Kar, R. Tandon and H. Vincent Poor<br /><span class="paper-venue">IEEE International Conference on Smart Grid Communications, Brussels, Belgium, October 2011.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Secure%20Source%20coding%20with%20a%20Helper" target="_blank" rel="noopener">Secure Source coding with a Helper</a></h3>
+          <p class="paper-meta">R. Tandon, S. Ulukus, and K. Ramchandran<br /><span class="paper-venue">47th Annual Allerton Conference on Communications, Control and Computing, Monticello, IL, Sep. 2009.</span></p>
+        </article>
+      </div>
+    </section>
+    <section class="theme-section" id="trustworthy-ai-ml">
+      <div class="theme-header">
+        <div class="theme-heading-row">
+          <h2 class="theme-title">Trustworthy AI/ML</h2>
+          <a class="top-link" href="#top" aria-label="Back to top">↑ Top</a>
+        </div>
+      </div>
+
+      <div class="paper-list">
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://arxiv.org/pdf/2411.12127" target="_blank" rel="noopener">Fine-Grained Uncertainty Quantification via Collisions</a></h3>
+          <p class="paper-meta">J. Friedbaum, S. Adiga and R. Tandon<br /><span class="paper-venue">IEEE Transactions on Information Theory (accepted), 2026.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://arxiv.org/abs/2605.16440" target="_blank" rel="noopener">Semantic Smoothing via Novel View Synthesis for Robust SAR Image Classification</a></h3>
+          <p class="paper-meta">D. Brignac, F. Tian, B. Latibari, A. Mahalanobis and R. Tandon<br /><span class="paper-venue">Great Lakes Symposium on VLSI (GLSVLSI), 2026.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=11108253" target="_blank" rel="noopener">SPLITZ: Certifiable Robustness via Split Lipschitz Randomized Smoothing</a></h3>
+          <p class="paper-meta">M. Zhong and R. Tandon<br /><span class="paper-venue">IEEE Transactions on Information Forensics and Security, Vol. 20: 9099-9112, August 2025.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://arxiv.org/pdf/2509.04464" target="_blank" rel="noopener">Can Multiple Responses from an LLM Reveal the Sources of Its Uncertainty?</a></h3>
+          <p class="paper-meta">Y. Nan, P. He, R. Tandon and H. Xu<br /><span class="paper-venue">Conference on Empirical Methods in Natural Language Processing (EMNLP), Suzhou, China, Nov. 2025.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Prompt%20Fairness%3A%20Sub-group%20Disparities%20in%20LLMs" target="_blank" rel="noopener">Prompt Fairness: Sub-group Disparities in LLMs</a></h3>
+          <p class="paper-meta">M. Zhong, N. Teku and R. Tandon<br /><span class="paper-venue">58th Asilomar Conference on Signals, Systems, and Computers, Pacific Grove, CA, October 2025.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Uncertainty%20Quantification%20and%20Posterior%20Estimation%20via%20Pair-Wise%20Contrast" target="_blank" rel="noopener">Uncertainty Quantification and Posterior Estimation via Pair-Wise Contrast</a></h3>
+          <p class="paper-meta">J. Friedbaum, S. Adiga and R. Tandon<br /><span class="paper-venue">58th Asilomar Conference on Signals, Systems, and Computers, Pacific Grove, CA, October 2025.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://arxiv.org/pdf/2405.11195" target="_blank" rel="noopener">Trustworthy Actionable Perturbations</a></h3>
+          <p class="paper-meta">J. Friedbaum, S. Adiga and R. Tandon<br /><span class="paper-venue">International Conference on Machine Learning (ICML), Vienna, Austria, July 2024.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Learning%20Fair%20Robustness%20via%20Domain%20Mixup" target="_blank" rel="noopener">Learning Fair Robustness via Domain Mixup</a></h3>
+          <p class="paper-meta">M. Zhong and R. Tandon<br /><span class="paper-venue">57th Asilomar Conference on Signals, Systems, and Computers, Pacific Grove, CA, October 2024.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Filtered%20Randomized%20Smoothing%3A%20A%20New%20Defense%20for%20Robust%20Modulation%20Classification" target="_blank" rel="noopener">Filtered Randomized Smoothing: A New Defense for Robust Modulation Classification</a></h3>
+          <p class="paper-meta">W. Zhang, M. Zhong, R. Tandon and M. Krunz<br /><span class="paper-venue">IEEE MILCOM Conference, October 2024.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Intrinsic%20Fairness-Accuracy%20Tradeoffs%20under%20Equalized%20Odds" target="_blank" rel="noopener">Intrinsic Fairness-Accuracy Tradeoffs under Equalized Odds</a></h3>
+          <p class="paper-meta">M. Zhong and R. Tandon<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Athens, Greece, July 2024.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Learning%20Fair%20Classifiers%20via%20Min-max%20F-divergence%20Regularization" target="_blank" rel="noopener">Learning Fair Classifiers via Min-max F-divergence Regularization</a></h3>
+          <p class="paper-meta">M. Zhong and R. Tandon<br /><span class="paper-venue">59th Annual Allerton Conference on Communication, Control, and Computing, Monticello, IL, September 2023</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Unsupervised%20Change%20Detection%20using%20DRE-CUSUM" target="_blank" rel="noopener">Unsupervised Change Detection using DRE-CUSUM</a></h3>
+          <p class="paper-meta">S. Adiga and R. Tandon<br /><span class="paper-venue">56th Asilomar Conference on Signals, Systems, and Computers, Pacific Grove, CA, March 2023.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Tradeoff%20between%20Mode%20Collapse%20and%20Sample%20Quality%20in%20Generative%20Adversarial%20networks" target="_blank" rel="noopener">On the Tradeoff between Mode Collapse and Sample Quality in Generative Adversarial networks</a></h3>
+          <p class="paper-meta">S. Adiga, M. Attia, W. Chang and R. Tandon<br /><span class="paper-venue">IEEE Global Conference on Signal and Information Processing (GlobalSIP), Anaheim, CA, November, 2018.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Online%20Denoising%20of%20Discrete%20Noisy%20Data" target="_blank" rel="noopener">Online Denoising of Discrete Noisy Data</a></h3>
+          <p class="paper-meta">P. Khadivi, R. Tandon and N. Ramakrishnan<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Hong Kong, June 2015.</span></p>
+        </article>
+      </div>
+    </section>
+    <section class="theme-section" id="efficient-ai-systems">
+      <div class="theme-header">
+        <div class="theme-heading-row">
+          <h2 class="theme-title">Efficient AI Systems</h2>
+          <a class="top-link" href="#top" aria-label="Back to top">↑ Top</a>
+        </div>
+      </div>
+
+      <div class="paper-list">
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://arxiv.org/pdf/2510.09942" target="_blank" rel="noopener">Conformal Sparsification for Bandwidth-Efficient Edge-Cloud Speculative Decoding</a></h3>
+          <p class="paper-meta">P. Bhattacharjee, F. Tian, M. Zhong, G. Zhang, O Simeone and R. Tandon<br /><span class="paper-venue">Neural Information Processing Systems (NeurIPS) AI4NextG Workshop, December 2025.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://arxiv.org/pdf/2502.04557" target="_blank" rel="noopener">Speeding up Speculative Decoding via Sequential Approximate Verification</a></h3>
+          <p class="paper-meta">M. Zhong, N. Teku and and R. Tandon<br /><span class="paper-venue">ICML Workshop on Efficient Systems for Foundation Models, Vancouver, Canada, July 2025.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Skip%20the%20Benchmark%3A%20Generating%20System-Level%20High-Level%20Synthesis%20Data%20using%20Generative%20Machine%20Learning" target="_blank" rel="noopener">Skip the Benchmark: Generating System-Level High-Level Synthesis Data using Generative Machine Learning</a></h3>
+          <p class="paper-meta">Y. Liao, T. Adegbija, R, Lysecky and R. Tandon<br /><span class="paper-venue">Great Lakes Symposium on VLSI (GLSVLSI 2024), Tampa, FL, June 2024.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Sparse%20Matrix%20Codes%3A%20Rate-Reliability%20Trade-offs%20for%20URLLC" target="_blank" rel="noopener">Sparse Matrix Codes: Rate-Reliability Trade-offs for URLLC</a></h3>
+          <p class="paper-meta">S. Adiga, R. Tandon and T. Bose<br /><span class="paper-venue">Conference on Information Sciences and Systems (CISS), Princeton, NJ, March 2022.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Necessity%20of%20Aligning%20Gradients%20for%20Wireless%20Federated%20Learning" target="_blank" rel="noopener">On the Necessity of Aligning Gradients for Wireless Federated Learning</a></h3>
+          <p class="paper-meta">W. Chang, M. Seif and R. Tandon<br /><span class="paper-venue">IEEE Workshop on Signal Processing Advances in Wireless Communications (SPAWC), Lucca, Italy, Sep, 2021.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Deep%20Learning%20for%20SVD%20and%20Hybrid%20Beamforming" target="_blank" rel="noopener">Deep Learning for SVD and Hybrid Beamforming</a></h3>
+          <p class="paper-meta">T. Peken, S. Adiga, R. Tandon and T. Bose<br /><span class="paper-venue">IEEE Transactions on Wireless Communications, 19(10): 6621-6642, October 2020.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=MAC%20Aware%20Quantization%20for%20Distributed%20Gradient%20Descent" target="_blank" rel="noopener">MAC Aware Quantization for Distributed Gradient Descent</a></h3>
+          <p class="paper-meta">W. Chang and R. Tandon<br /><span class="paper-venue">IEEE Global Communications Conference (GLOBECOM), Taipei, December, 2020.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Unsupervised%20mmWave%20Beamforming%20via%20Autoencoders" target="_blank" rel="noopener">Unsupervised mmWave Beamforming via Autoencoders</a></h3>
+          <p class="paper-meta">T. Peken, R. Tandon and T. Bose<br /><span class="paper-venue">IEEE International Conference on Communications (ICC), Dublin, Ireland, June, 2020.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Near%20Optimal%20Coded%20Data%20Shuffling%20for%20Distributed%20Learning" target="_blank" rel="noopener">Near Optimal Coded Data Shuffling for Distributed Learning</a></h3>
+          <p class="paper-meta">M. Attia and R. Tandon<br /><span class="paper-venue">IEEE Transactions on Information Theory , 65(11): 7325-7349, November 2019.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Random%20Sampling%20for%20Distributed%20Coded%20Matrix%20Multiplication" target="_blank" rel="noopener">Random Sampling for Distributed Coded Matrix Multiplication</a></h3>
+          <p class="paper-meta">W. Chang and R. Tandon<br /><span class="paper-venue">IEEE ICASSP Conference, Brighton, UK, May 2019.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Efficient%20Spectrum%20Access%20and%20Co-Existence%20With%20Receiver%20Nonlinearity%3A%20Frameworks%20and%20Algorithms" target="_blank" rel="noopener">Efficient Spectrum Access and Co-Existence With Receiver Nonlinearity: Frameworks and Algorithms</a></h3>
+          <p class="paper-meta">A. Padaki, R. Tandon, and J. H. Reed<br /><span class="paper-venue">IEEE Transactions on Wireless Communications, 17(10): 6404-6418, October 2018.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Online%20Edge%20Caching%20and%20Wireless%20Delivery%20in%20Fog-Aided%20Networks%20with%20Dynamic%20Content%20Popularity" target="_blank" rel="noopener">Online Edge Caching and Wireless Delivery in Fog-Aided Networks with Dynamic Content Popularity</a></h3>
+          <p class="paper-meta">S. M. Azimi, O. Simeone, A. Sengupta, and R. Tandon<br /><span class="paper-venue">IEEE Journal on Selected Areas in Communications (JSAC), 36(6): 1189-1202, June 2018.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Approximately%20Optimal%20Distributed%20Data%20Shuffling" target="_blank" rel="noopener">Approximately Optimal Distributed Data Shuffling</a></h3>
+          <p class="paper-meta">M. Attia and R. Tandon<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Vail, Colorado, June 2018.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Fog-Aided%20Wireless%20Networks%20for%20Content%20Delivery%3A%20Fundamental%20Latency%20Tradeoffs" target="_blank" rel="noopener">Fog-Aided Wireless Networks for Content Delivery: Fundamental Latency Tradeoffs</a></h3>
+          <p class="paper-meta">A. Sengupta, R. Tandon, and O. Simeone<br /><span class="paper-venue">IEEE Transactions on Information Theory, 63(10): 6650-6678, October 2017.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Content%20Delivery%20in%20Fog-Aided%20Systems%20with%20Offline%20and%20Online%20Caching%3A%20An%20Information-Theoretic%20Analysis" target="_blank" rel="noopener">Content Delivery in Fog-Aided Systems with Offline and Online Caching: An Information-Theoretic Analysis</a></h3>
+          <p class="paper-meta">S. M. Azimi, O. Simeone, and R. Tandon<br /><span class="paper-venue">Entropy, 19(7): 366 July 2017.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Improved%20Approximation%20of%20Storage-Rate%20Tradeoff%20for%20Caching%20with%20Multiple%20Demands" target="_blank" rel="noopener">Improved Approximation of Storage-Rate Tradeoff for Caching with Multiple Demands</a></h3>
+          <p class="paper-meta">A. Sengupta and R. Tandon<br /><span class="paper-venue">IEEE Transactions on Communications, 65(5): 1940-1955, May 2017.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Latency%20and%20Energy%20Efficiency%20of%20Distributed%20Storage%20Systems" target="_blank" rel="noopener">On the Latency and Energy Efficiency of Distributed Storage Systems</a></h3>
+          <p class="paper-meta">A. Kumar, R. Tandon and T. Charles Clancy<br /><span class="paper-venue">IEEE Transactions on Cloud Computing, 5(2): 221-233, May 2017.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Topological%20Edge%20Caching%20with%20no%20CSI%20at%20the%20Edge" target="_blank" rel="noopener">Topological Edge Caching with no CSI at the Edge</a></h3>
+          <p class="paper-meta">W. Chang, R. Tandon and O. Simeone<br /><span class="paper-venue">51st Asilomar Conference on Signals, Systems and Computers, Pacific Grove, CA, November, 2017.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Online%20Edge%20Caching%20in%20Fog-aided%20Wireless%20Networks" target="_blank" rel="noopener">Online Edge Caching in Fog-aided Wireless Networks</a></h3>
+          <p class="paper-meta">S. Azimi, O. Simeone, A. Sengupta and R. Tandon<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Aachen, Germany, June 2017.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Coding%20for%20Efficient%20Caching%20in%20Multicore%20Embedded%20Systems" target="_blank" rel="noopener">Coding for Efficient Caching in Multicore Embedded Systems</a></h3>
+          <p class="paper-meta">T. Adegbija and R. Tandon<br /><span class="paper-venue">IEEE International Symposium on VLSI (ISVLSI), Bochum, Germany, July 2017.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Cloud-Aided%20Edge%20Caching%20with%20Multicast%20Fronthauling%20in%20Fog%20Radio%20Access%20Networks" target="_blank" rel="noopener">Cloud-Aided Edge Caching with Multicast Fronthauling in Fog Radio Access Networks</a></h3>
+          <p class="paper-meta">J. Koh, O. Simeone, R. Tandon and J. Kang<br /><span class="paper-venue">IEEE Wireless Communications and Networking Conference (WCNC), San Francisco, CA, March, 2017.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Harnessing%20Cloud%20and%20Edge%20Synergies%3A%20Towards%20an%20Information%20Theory%20of%20Fog%20Radio%20Access%20Networks" target="_blank" rel="noopener">Harnessing Cloud and Edge Synergies: Towards an Information Theory of Fog Radio Access Networks</a></h3>
+          <p class="paper-meta">R. Tandon, and O. Simeone<br /><span class="paper-venue">IEEE Communications Magazine, 54(8): 44-50, August 2016.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Worst-case%20Communication%20Overhead%20for%20Distributed%20Data%20Shuffling" target="_blank" rel="noopener">On the Worst-case Communication Overhead for Distributed Data Shuffling</a></h3>
+          <p class="paper-meta">M. Attia and R. Tandon<br /><span class="paper-venue">54th Allerton Conference on Communications, Control and Computing, Monticello, IL, October 2016.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Information%20Theoretic%20Limits%20of%20Data%20Shuffling%20for%20Distributed%20Learning" target="_blank" rel="noopener">Information Theoretic Limits of Data Shuffling for Distributed Learning</a></h3>
+          <p class="paper-meta">M. Attia and R. Tandon<br /><span class="paper-venue">IEEE Global Communications Conference (GLOBECOM), Washington, DC, December, 2016.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Fundamental%20Limits%20on%20Latency%20in%20Small-Cell%20Caching%20Systems%3A%20An%20Information-Theoretic%20Analysis" target="_blank" rel="noopener">Fundamental Limits on Latency in Small-Cell Caching Systems: An Information-Theoretic Analysis</a></h3>
+          <p class="paper-meta">S. M. Azimi, O. Simeone and R. Tandon<br /><span class="paper-venue">IEEE Global Communications Conference (GLOBECOM), Washington, DC, December, 2016.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Layered%20Caching%20for%20Heterogeneous%20Storage" target="_blank" rel="noopener">Layered Caching for Heterogeneous Storage</a></h3>
+          <p class="paper-meta">A. Sengupta, R. Tandon and T. C. Clancy<br /><span class="paper-venue">50th Asilomar Conference on Signals, Systems and Computers, Pacific Grove, CA, November, 2016.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Cloud-Aided%20Wireless%20Networks%20with%20Edge%20Caching%3A%20Fundamental%20Latency%20Trade-Offs%20in%20Fog%20Radio%20Access%20Networks" target="_blank" rel="noopener">Cloud-Aided Wireless Networks with Edge Caching: Fundamental Latency Trade-Offs in Fog Radio Access Networks</a></h3>
+          <p class="paper-meta">R. Tandon and O. Simeone<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Barcelona, Spain, July, 2016.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Cloud%20RAN%20and%20Edge%20Caching%3A%20Fundamental%20Performance%20Trade-Offs" target="_blank" rel="noopener">Cloud RAN and Edge Caching: Fundamental Performance Trade-Offs</a></h3>
+          <p class="paper-meta">A. Sengupta, R. Tandon and O. Simeone<br /><span class="paper-venue">IEEE Workshop on Signal Processing Advances in Wireless Communications (SPAWC), Edinburgh, UK, July, 2016.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Cache%20Aided%20Wireless%20Networks%3A%20Tradeoffs%20between%20Storage%20and%20Latency" target="_blank" rel="noopener">Cache Aided Wireless Networks: Tradeoffs between Storage and Latency</a></h3>
+          <p class="paper-meta">A. Sengupta, R. Tandon and O. Simeone<br /><span class="paper-venue">Conference on Information Sciences and Systems (CISS), Princeton, NJ, March 2016.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Dynamic%20Resource%20Allocation%20for%20Cooperative%20Spectrum%20Sharing%20in%20LTE%20Networks" target="_blank" rel="noopener">Dynamic Resource Allocation for Cooperative Spectrum Sharing in LTE Networks</a></h3>
+          <p class="paper-meta">A. Kumar, A. Sengupta, R. Tandon and T. Charles Clancy<br /><span class="paper-venue">IEEE Transactions on Vehicular Technology, 64(11): 5232-5245, November 2015.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Efficient%20Spectrum%20Sharing%20with%20RF%20Diversity%3A%20Adapting%20to%20Nonlinearity%20of%20Front%20Ends" target="_blank" rel="noopener">Efficient Spectrum Sharing with RF Diversity: Adapting to Nonlinearity of Front Ends</a></h3>
+          <p class="paper-meta">A. Padaki, R. Tandon, and Jeffrey H. Reed<br /><span class="paper-venue">IEEE Global Communications Conference (GLOBECOM), San Diego, CA, December 2015.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=New%20Bounds%20on%20the%20%28n%2C%20k%2C%20d%29%20Storage%20Systems%20with%20Exact%20Repair" target="_blank" rel="noopener">New Bounds on the (n, k, d) Storage Systems with Exact Repair</a></h3>
+          <p class="paper-meta">S. Mohajer and R. Tandon<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Hong Kong, June 2015.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Linear%20Exact%20Repair%20Rate%20region%20of%20%28k%2B1%2C%20k%2C%20k%29%20distributed%20storage%20systems%3A%20a%20new%20approach" target="_blank" rel="noopener">Linear Exact Repair Rate region of (k+1, k, k) distributed storage systems: a new approach</a></h3>
+          <p class="paper-meta">M. Elyasi, R. Tandon and S. Mohajer<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Hong Kong, June 2015.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Improved%20Approximation%20of%20Storage-Rate%20Tradeoff%20for%20Caching%20via%20New%20Outer%20Bounds" target="_blank" rel="noopener">Improved Approximation of Storage-Rate Tradeoff for Caching via New Outer Bounds</a></h3>
+          <p class="paper-meta">A. Sengupta, R. Tandon and T. Clancy<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Hong Kong, June 2015.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Exact%20Repair%20for%20Distributed%20Storage%20Systems%3A%20partial%20characterization%20via%20new%20outer%20bounds" target="_blank" rel="noopener">Exact Repair for Distributed Storage Systems: partial characterization via new outer bounds</a></h3>
+          <p class="paper-meta">S. Mohajer and R. Tandon<br /><span class="paper-venue">Information Theory and Applications Workshop (ITA), San Diego, CA, February 2015.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Receiver%20Non-Linearity%20Aware%20Resource%20Allocation%20for%20Dynamic%20Spectrum%20Access%20Systems" target="_blank" rel="noopener">Receiver Non-Linearity Aware Resource Allocation for Dynamic Spectrum Access Systems</a></h3>
+          <p class="paper-meta">A. Padaki, R. Tandon and Jeffrey H. Reed<br /><span class="paper-venue">IEEE Milcom, Baltimore, MD, USA, Oct. 2014.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Network%20Aware%20Spectrum%20Efficiency%20Metric%20for%20Heterogeneous%20and%20Dynamic%20Radio%20Environments" target="_blank" rel="noopener">Network Aware Spectrum Efficiency Metric for Heterogeneous and Dynamic Radio Environments</a></h3>
+          <p class="paper-meta">A. Padaki, R. Tandon and Jeffrey H. Reed<br /><span class="paper-venue">48th Asilomar Conference on Signals, Systems and Computers, Pacific Grove, CA, Nov. 2014.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Learning%20Distributed%20Caching%20Strategies%20in%20Small%20Cell%20Networks" target="_blank" rel="noopener">Learning Distributed Caching Strategies in Small Cell Networks</a></h3>
+          <p class="paper-meta">A. Sengupta, S. Amuru, R. Tandon, R. Michael Buehrer and T. Charles Clancy<br /><span class="paper-venue">IEEE International Symposium on Wireless Communication Systems (ISWCS), Barcelona, Spain, August 2014.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=MIMO%20Radar%20Waveform%20Design%20to%20support%20Spectrum%20Sharing" target="_blank" rel="noopener">MIMO Radar Waveform Design to support Spectrum Sharing</a></h3>
+          <p class="paper-meta">S. Amuru, R. M. Buehrer, R. Tandon and S. Sodagari<br /><span class="paper-venue">IEEE Military Communications Conference (MILCOM), San Diego, CA, November 2013.</span></p>
+        </article>
+      </div>
+    </section>
+    <section class="theme-section" id="information-theory">
+      <div class="theme-header">
+        <div class="theme-heading-row">
+          <h2 class="theme-title">Information Theory</h2>
+          <a class="top-link" href="#top" aria-label="Back to top">↑ Top</a>
+        </div>
+      </div>
+
+      <div class="paper-list">
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Information%20Theoretic%20Optimal%20Surveillance%20for%20Epidemic%20Prevalence%20in%20Networks" target="_blank" rel="noopener">Information Theoretic Optimal Surveillance for Epidemic Prevalence in Networks</a></h3>
+          <p class="paper-meta">R. Mishra, A. Adiga, M. Marathe, S. S. Ravi, R. Tandon and A. Vullikanti<br /><span class="paper-venue">AAAI Conference on Artificial Intelligence, January 2026.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10731877" target="_blank" rel="noopener">Latency-Distortion Tradeoffs in Communicating Classification Results over Noisy Channels</a></h3>
+          <p class="paper-meta">N. Teku, S. Adiga and R. Tandon<br /><span class="paper-venue">IEEE Transactions on Communications, Vol. 43(5): 3547 - 3561, May 2025.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10418200" target="_blank" rel="noopener">Generalization Bounds for Neural Belief Propagation Decoders</a></h3>
+          <p class="paper-meta">S. Adiga, X. Xiao, R. Tandon, B. Vasić and T. Bose<br /><span class="paper-venue">IEEE Transactions on Information Theory, Vol. 70: 4280 - 4296, June, 2024.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Communicating%20Classification%20Results%20over%20Noisy%20Channels" target="_blank" rel="noopener">Communicating Classification Results over Noisy Channels</a></h3>
+          <p class="paper-meta">N. Teku, S. Adiga and R. Tandon<br /><span class="paper-venue">IEEE International Conference on Communications (ICC), Denver, CO, June 2024.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Heterogeneity%20Aware%20Two-Stage%20Group%20Testing" target="_blank" rel="noopener">Heterogeneity Aware Two-Stage Group Testing</a></h3>
+          <p class="paper-meta">M. Attia, W. Chang and R. Tandon<br /><span class="paper-venue">IEEE Transactions on Signal Processing, Vol. 69: 3977-3990, July 2021.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=FAID%20Diversity%20via%20Neural%20Networks" target="_blank" rel="noopener">FAID Diversity via Neural Networks</a></h3>
+          <p class="paper-meta">X. Xiao, N. Raveendran, B. Vasic, S. Lin and R. Tandon<br /><span class="paper-venue">IEEE 11th International Symposium on Topics in Coding (ISTC), Montreal, Canada, September, 2021.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Designing%20Finite%20Alphabet%20Iterative%20Decoders%20of%20LDPC%20Codes%20Via%20Recurrent%20Quantized%20Neural%20Networks" target="_blank" rel="noopener">Designing Finite Alphabet Iterative Decoders of LDPC Codes Via Recurrent Quantized Neural Networks</a></h3>
+          <p class="paper-meta">X. Xiao, B. Vasic, R. Tandon and S. Lin<br /><span class="paper-venue">IEEE Transactions on Communications, 68(7): 3963-3974, July 2020.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Regret%20Analysis%20of%20Stochastic%20Multi-armed%20Bandit%20Problem%20with%20Clustered%20Information%20Feedback" target="_blank" rel="noopener">Regret Analysis of Stochastic Multi-armed Bandit Problem with Clustered Information Feedback</a></h3>
+          <p class="paper-meta">T. Zhao, B. Jiang, M. Li and R. Tandon<br /><span class="paper-venue">International Joint Conference on Neural Networks (IJCNN), Glasgow, UK, July, 2020.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Finite%20alphabet%20iterative%20decoding%20of%20LDPC%20codes%20with%20coarsely%20quantized%20neural%20networks" target="_blank" rel="noopener">Finite alphabet iterative decoding of LDPC codes with coarsely quantized neural networks</a></h3>
+          <p class="paper-meta">X. Xiao, B. Vasic, R. Tandon and S. Lin<br /><span class="paper-venue">IEEE Global Communications Conference (GLOBECOM), Hawaii, December, 2019.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20Adjacent%20Channel%20Co-existence%20with%20Receiver%20Nonlinearity" target="_blank" rel="noopener">On Adjacent Channel Co-existence with Receiver Nonlinearity</a></h3>
+          <p class="paper-meta">A. Padaki, R. Tandon, and J. H. Reed<br /><span class="paper-venue">IEEE Transactions on Wireless Communications, 17(7): 4922-4936, July 2018.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Degrees%20of%20Freedom%20and%20Achievable%20Rate%20of%20Wide-Band%20Multi-Cell%20Multiple%20Access%20Channels%20With%20No%20CSIT" target="_blank" rel="noopener">Degrees of Freedom and Achievable Rate of Wide-Band Multi-Cell Multiple Access Channels With No CSIT</a></h3>
+          <p class="paper-meta">Y. Jeon, N. Lee and R. Tandon,<br /><span class="paper-venue">IEEE Transactions on Communications, 66(4): 1772-1786, April 2018.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Non-Gaussian%20Signal%20Detection%3A%20How%20much%20can%20massive%20MIMO%20help%3F" target="_blank" rel="noopener">Non-Gaussian Signal Detection: How much can massive MIMO help?</a></h3>
+          <p class="paper-meta">T. Peken, R. Tandon and T. Bose<br /><span class="paper-venue">IEEE International Conference on Communications (ICC), Kansas City, MO, May 2018.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Degrees%20of%20Freedom%20of%20Wide-Band%20Multi-cell%20Multiple%20Access%20Channels%20with%20no%20CSIT" target="_blank" rel="noopener">On the Degrees of Freedom of Wide-Band Multi-cell Multiple Access Channels with no CSIT</a></h3>
+          <p class="paper-meta">Yo-Seb Jeon, N. Lee and R. Tandon<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Aachen, Germany, June 2017.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20Scalability%20and%20Interference%20Avoidance%20in%20Nonlinear%20Adjacent%20Channel%20Interference%20Networks" target="_blank" rel="noopener">On Scalability and Interference Avoidance in Nonlinear Adjacent Channel Interference Networks</a></h3>
+          <p class="paper-meta">A. Padaki, R. Tandon and J. Reed<br /><span class="paper-venue">IEEE International Conference on Communications (ICC), Paris, France, May 2017.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=MISO%20Broadcast%20Channel%20with%20Hybrid%20CSIT%3A%20Beyond%20Two%20Users" target="_blank" rel="noopener">MISO Broadcast Channel with Hybrid CSIT: Beyond Two Users</a></h3>
+          <p class="paper-meta">S. Lashgari, R. Tandon and S. Avestimehr<br /><span class="paper-venue">IEEE Transactions on Information Theory, 62(12): 7056-7077, December 2016.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Seeing%20the%20Forest%20for%20the%20Trees%3A%20New%20Approaches%20to%20Forecasting%20Cascades" target="_blank" rel="noopener">Seeing the Forest for the Trees: New Approaches to Forecasting Cascades</a></h3>
+          <p class="paper-meta">S. Krishnan, P. Butler, R. Tandon, J. Leskovec and N. Ramakrishnan<br /><span class="paper-venue">ACM Web Science Conference, Hannover, Germany, May 2016.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Perfect%20Output%20Feedback%20in%20the%20Two-User%20Decentralized%20Interference%20Channel" target="_blank" rel="noopener">Perfect Output Feedback in the Two-User Decentralized Interference Channel</a></h3>
+          <p class="paper-meta">S Perlaza, R. Tandon, H. Vincent Poor and Z. Han<br /><span class="paper-venue">IEEE Transactions on Information Theory, 61(10): 5441-5462, October 2015.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Approximate%20Capacity%20Region%20for%20the%20Symmetric%20Gaussian%20Interference%20Channel%20with%20Noisy%20Feedback" target="_blank" rel="noopener">Approximate Capacity Region for the Symmetric Gaussian Interference Channel with Noisy Feedback</a></h3>
+          <p class="paper-meta">Le-Sy Quoc, R. Tandon, M. Motani and H. Vincent Poor<br /><span class="paper-venue">IEEE Transactions on Information Theory, 61(7): 3737-3762, July 2015.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Distributed%20Space-Time%20Interference%20Alignment%20With%20Moderately%20Delayed%20CSIT" target="_blank" rel="noopener">Distributed Space-Time Interference Alignment With Moderately Delayed CSIT</a></h3>
+          <p class="paper-meta">Namyoon Lee, R. Tandon and Robert W. Heath Jr.<br /><span class="paper-venue">IEEE Transactions on Wireless Communications, 14(2): 1048-1059, Feb 2015.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=PHY-Layer%20Resiliency%20in%20OFDM%20Communications%3A%20A%20Tutorial" target="_blank" rel="noopener">PHY-Layer Resiliency in OFDM Communications: A Tutorial</a></h3>
+          <p class="paper-meta">C. Shahriar, M. La Pan, M. Lichtman, T. C. Clancy, R. McGwier, R. Tandon, S. Sodagari, and J. H. Reed<br /><span class="paper-venue">IEEE Communications Surveys and Tutorials, 17(1): 292-314, March 2015.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Uncovering%20News-Twitter%20Reciprocity%20via%20Interaction%20Patterns" target="_blank" rel="noopener">Uncovering News-Twitter Reciprocity via Interaction Patterns</a></h3>
+          <p class="paper-meta">Y. Ning, S. Muthiah, R. Tandon, and N. Ramakrishnan<br /><span class="paper-venue">IEEE/ACM Conference on Advances in Social Networks Analysis and Mining (ASONAM’15), Paris, Aug. 2015.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Time%20series%20forecasting%20via%20noisy%20channel%20reversal" target="_blank" rel="noopener">Time series forecasting via noisy channel reversal</a></h3>
+          <p class="paper-meta">P. Khadivi, P. Chakraborty, R. Tandon, and N. Ramakrishnan<br /><span class="paper-venue">IEEE Machine Learning for Signal Processing (MLSP) Workshop, Boston, MA, Sep. 2015.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=A%20General%20Outer%20Bound%20for%20MISO%20Broadcast%20Channel%20with%20Heterogeneous%20CSIT" target="_blank" rel="noopener">A General Outer Bound for MISO Broadcast Channel with Heterogeneous CSIT</a></h3>
+          <p class="paper-meta">S. Lashgari, R. Tandon and S. Avestimehr<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Hong Kong, June 2015.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Three-User%20MISO%20Broadcast%20Channel%3A%20How%20Much%20Can%20CSIT%20Heterogeneity%20Help%3F" target="_blank" rel="noopener">Three-User MISO Broadcast Channel: How Much Can CSIT Heterogeneity Help?</a></h3>
+          <p class="paper-meta">S. Lashgari, R. Tandon and S. Avestimehr<br /><span class="paper-venue">IEEE International Conference on Communications (ICC), London, UK, June 2015.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Beyond%20Cut-Set%20Bounds%20-%20The%20Approximate%20Capacity%20of%20D2D%20Networks" target="_blank" rel="noopener">Beyond Cut-Set Bounds - The Approximate Capacity of D2D Networks</a></h3>
+          <p class="paper-meta">A. Sengupta and R. Tandon<br /><span class="paper-venue">Information Theory and Applications Workshop (ITA), San Diego, CA, February 2015.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Latency%20of%20Heterogenous%20MDS%20Queue" target="_blank" rel="noopener">On the Latency of Heterogenous MDS Queue</a></h3>
+          <p class="paper-meta">A. Kumar, R. Tandon and T. Charles Clancy<br /><span class="paper-venue">IEEE GLOBECOM, Symposium on Data Storage, Austin, TX, USA, Dec. 2014.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Degrees-of-freedom%20of%20the%203-user%20MISO%20Broadcast%20Channel%20with%20Hybrid%20CSIT" target="_blank" rel="noopener">On the Degrees-of-freedom of the 3-user MISO Broadcast Channel with Hybrid CSIT</a></h3>
+          <p class="paper-meta">S. Amuru, R. Tandon and Shlomo Shamai<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Honolulu, HI, USA, July 2014.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Symmetric%20Decentralized%20Interference%20Channels%20with%20Noisy%20Feedback" target="_blank" rel="noopener">Symmetric Decentralized Interference Channels with Noisy Feedback</a></h3>
+          <p class="paper-meta">S. Perlaza, R. Tandon and H. Vincent Poor<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Honolulu, HI, USA, July 2014.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Decentralized%20Interference%20Channels%20with%20Noisy%20Feedback%20Possess%20Pareto%20Optimal%20Nash%20Equili/strongia%20%28invited%29" target="_blank" rel="noopener">Decentralized Interference Channels with Noisy Feedback Possess Pareto Optimal Nash Equili/strongia (invited)</a></h3>
+          <p class="paper-meta">S. Perlaza, R. Tandon and H. Vincent Poor<br /><span class="paper-venue">6th International Symp. on Communications, Control, and Signal Processing (ISCCSP 2014), Athens, Greece, May 2014.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Synergistic%20Benefits%20of%20Alternating%20CSIT%20for%20the%20MISO%20Broadcast%20Channel" target="_blank" rel="noopener">On the Synergistic Benefits of Alternating CSIT for the MISO Broadcast Channel</a></h3>
+          <p class="paper-meta">R. Tandon, Syed A. Jafar, Shlomo Shamai and H. Vincent Poor<br /><span class="paper-venue">IEEE Transactions on Information Theory, 59(7): 4106-4128, July 2013.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Feedback%20Capacity%20of%20the%20Fully%20Connected%20K-user%20Interference%20Channel" target="_blank" rel="noopener">On the Feedback Capacity of the Fully Connected K-user Interference Channel</a></h3>
+          <p class="paper-meta">S. Mohajer, R. Tandon and H. Vincent Poor<br /><span class="paper-venue">IEEE Transactions on Information Theory, 59(5): 2863-2881, May 2013.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Symmetric%20Feedback%20Capacity%20of%20the%20K-user%20Cyclic%20Z-Interference%20Channel" target="_blank" rel="noopener">On the Symmetric Feedback Capacity of the K-user Cyclic Z-Interference Channel</a></h3>
+          <p class="paper-meta">R. Tandon, S. Mohajer and H. Vincent Poor<br /><span class="paper-venue">IEEE Transactions on Information Theory, 59(5): 2713-2734, May 2013.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Degrees%20of%20Freedom%20Region%20of%20the%20MIMO%20Interference%20Channel%20with%20Output%20Feedback%20and%20Delayed%20CSIT" target="_blank" rel="noopener">Degrees of Freedom Region of the MIMO Interference Channel with Output Feedback and Delayed CSIT</a></h3>
+          <p class="paper-meta">R. Tandon, S. Mohajer, H. Vincent Poor and Shlomo Shamai<br /><span class="paper-venue">IEEE Transactions on Information Theory, 59(3): 1444-1457, March 2013.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Heegard-Berger%20and%20Cascade%20Source%20Coding%20Problems%20with%20Common%20Reconstruction%20Constraints" target="_blank" rel="noopener">Heegard-Berger and Cascade Source Coding Problems with Common Reconstruction Constraints</a></h3>
+          <p class="paper-meta">B. Ahmadi, R. Tandon, O. Simeone and H. Vincent Poor<br /><span class="paper-venue">IEEE Transactions on Information Theory, 59(3): 1458-1474, March 2013.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Even%20Symmetric%20Parallel%20Linear%20Deterministic%20Interference%20Channels%20are%20Inseparable" target="_blank" rel="noopener">Even Symmetric Parallel Linear Deterministic Interference Channels are Inseparable</a></h3>
+          <p class="paper-meta">P. Mukherjee, R. Tandon and S. Ulukus<br /><span class="paper-venue">51st Annual Allerton Conference on Communications, Control and Computing, Monticello, IL, October 2013.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Two-user%20MISO%20Broadcast%20Channel%3A%20Synergistic%20Benefits%20of%20Alternating%20CSIT" target="_blank" rel="noopener">Two-user MISO Broadcast Channel: Synergistic Benefits of Alternating CSIT</a></h3>
+          <p class="paper-meta">R. Tandon, Syed A. Jafar, Shlomo Shamai and H. Vincent Poor<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Istanbul, Turkey, July 2013.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=The%20Capacity%20region%20of%20the%20Linear%20Deterministic%20Interference%20Channel%20with%20Partial%20Feedback" target="_blank" rel="noopener">The Capacity region of the Linear Deterministic Interference Channel with Partial Feedback</a></h3>
+          <p class="paper-meta">Le-Sy Quoc, R. Tandon, M. Motani and H. Vincent Poor<br /><span class="paper-venue">50th Annual Allerton Conference on Communications, Control and Computing, Monticello, IL, October 2012.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=The%20Nash%20Equili/strongium%20region%20of%20the%20Linear%20Deterministic%20Interference%20Channel%20with%20Feedback" target="_blank" rel="noopener">The Nash Equili/strongium region of the Linear Deterministic Interference Channel with Feedback</a></h3>
+          <p class="paper-meta">S. M. Perlaza, R. Tandon and H. Vincent Poor<br /><span class="paper-venue">50th Annual Allerton Conference on Communications, Control and Computing, Monticello, IL, October 2012.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20Fading%20Broadcast%20Channels%20with%20Partial%20Channel%20State%20Information%20at%20the%20Transmitter" target="_blank" rel="noopener">On Fading Broadcast Channels with Partial Channel State Information at the Transmitter</a></h3>
+          <p class="paper-meta">R. Tandon, M.-A. Maddah-Ali, A. Tulino, H. Vincent Poor and Shlomo Shamai<br /><span class="paper-venue">IEEE International Symposium on Wireless Communication Systems, Paris, August 2012.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20X-channels%20with%20Feedback%20and%20Delayed%20CSI" target="_blank" rel="noopener">On X-channels with Feedback and Delayed CSI</a></h3>
+          <p class="paper-meta">R. Tandon, S. Mohajer, H. Vincent Poor and Shlomo Shamai<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Boston, MA, July 2012.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Generalized%20Degrees%20of%20Freedom%20of%20the%20Symmetric%20K-user%20Interference%20Channel%20with%20Feedback" target="_blank" rel="noopener">Generalized Degrees of Freedom of the Symmetric K-user Interference Channel with Feedback</a></h3>
+          <p class="paper-meta">S. Mohajer, R. Tandon and H. Vincent Poor<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Boston, MA, July 2012.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Sum-capacity%20of%20the%20Linear%20Deterministic%20Interference%20Channel%20with%20Partial%20Feedback" target="_blank" rel="noopener">On the Sum-capacity of the Linear Deterministic Interference Channel with Partial Feedback</a></h3>
+          <p class="paper-meta">Le-Sy Quoc, R. Tandon, M. Motani and H. Vincent Poor<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Boston, MA, July 2012.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Heegard-Berger%20Problem%20with%20Common%20Reconstruction%20Constraints" target="_blank" rel="noopener">On the Heegard-Berger Problem with Common Reconstruction Constraints</a></h3>
+          <p class="paper-meta">B. Ahmadi, R. Tandon, O. Simeone and H. Vincent Poor<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Boston, MA, July 2012.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Gaussian%20Multiple%20Descriptions%20with%20Common%20and%20Constrained%20Reconstruction%20Constraints" target="_blank" rel="noopener">Gaussian Multiple Descriptions with Common and Constrained Reconstruction Constraints</a></h3>
+          <p class="paper-meta">R. Tandon, B. Ahmadi, O. Simeone and H. Vincent Poor<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Boston, MA, July 2012.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Feedback%20and%20Delayed%20CSI%20can%20be%20as%20good%20as%20Perfect%20CSI" target="_blank" rel="noopener">Feedback and Delayed CSI can be as good as Perfect CSI</a></h3>
+          <p class="paper-meta">R. Tandon, S. Mohajer, H. Vincent Poor, and Shlomo Shamai<br /><span class="paper-venue">IEEE International Conference on Communications (ICC), Ottawa, Canada, June 2012.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Dependence%20Balance%20Based%20Outer%20Bounds%20for%20Gaussian%20Networks%20with%20Cooperation%20and%20Feedback" target="_blank" rel="noopener">Dependence Balance Based Outer Bounds for Gaussian Networks with Cooperation and Feedback</a></h3>
+          <p class="paper-meta">R. Tandon and S. Ulukus<br /><span class="paper-venue">IEEE Transactions on Information Theory, 57(7):4063-4086, July 2011.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Feedback%20Capacity%20of%20K-user%20Cyclic%20Interference%20Channel" target="_blank" rel="noopener">On the Feedback Capacity of K-user Cyclic Interference Channel</a></h3>
+          <p class="paper-meta">R. Tandon and H. Vincent Poor<br /><span class="paper-venue">49th Annual Allerton Conference on Communications, Control and Computing, Monticello, IL, September 2011.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Cascade%20Source%20Coding%20with%20Erased%20Side%20Information" target="_blank" rel="noopener">Cascade Source Coding with Erased Side Information</a></h3>
+          <p class="paper-meta">R. Tandon, S. Mohajer, and H. Vincent Poor<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), St. Petersburg, Russia, August 2011.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Distributed%20Detection%20in%20Noisy%20Sensor%20Networks" target="_blank" rel="noopener">Distributed Detection in Noisy Sensor Networks</a></h3>
+          <p class="paper-meta">S. Kar, R. Tandon, H. Vincent Poor and S. Cui<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), St. Petersburg, Russia, August 2011.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Capacity%20Region%20of%20Multiple-access%20Relay%20Channels" target="_blank" rel="noopener">On the Capacity Region of Multiple-access Relay Channels</a></h3>
+          <p class="paper-meta">R. Tandon and H. Vincent Poor<br /><span class="paper-venue">Conference on Information Sciences and Systems (CISS), Baltimore, MD, March 2011.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Capacity%20of%20a%20Class%20of%20Semi-Deterministic%20Primitive%20Relay%20Channels" target="_blank" rel="noopener">Capacity of a Class of Semi-Deterministic Primitive Relay Channels</a></h3>
+          <p class="paper-meta">R. Tandon and S. Ulukus<br /><span class="paper-venue">48th Annual Allerton Conference on Communications, Control and Computing, Monticello, IL, September 2010.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Diamond%20Channel%20with%20Partially%20Separated%20Relays" target="_blank" rel="noopener">Diamond Channel with Partially Separated Relays</a></h3>
+          <p class="paper-meta">R. Tandon and S. Ulukus<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Austin, TX, June 2010.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Outer%20Bounds%20for%20Multiple%20Access%20Channels%20with%20Feedback%20using%20Dependence%20Balance" target="_blank" rel="noopener">Outer Bounds for Multiple Access Channels with Feedback using Dependence Balance</a></h3>
+          <p class="paper-meta">R. Tandon and S. Ulukus<br /><span class="paper-venue">IEEE Transactions on Information Theory, 55(10): 4494-4507, October 2009.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Outer%20Bounds%20for%20User%20Cooperation" target="_blank" rel="noopener">Outer Bounds for User Cooperation</a></h3>
+          <p class="paper-meta">R. Tandon and S. Ulukus<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Seoul, Korea, June 2009.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=Capacity%20bounds%20for%20the%20Gaussian%20Interference%20Channel%20with%20Transmitter%20Cooperation" target="_blank" rel="noopener">Capacity bounds for the Gaussian Interference Channel with Transmitter Cooperation</a></h3>
+          <p class="paper-meta">R. Tandon and S. Ulukus<br /><span class="paper-venue">IEEE Information Theory Workshop (ITW), Volos, Greece, June 2009.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Capacity%20Region%20of%20the%20Gaussian%20Multiple%20Access%20Channel%20with%20Noisy%20Feedback" target="_blank" rel="noopener">On the Capacity Region of the Gaussian Multiple Access Channel with Noisy Feedback</a></h3>
+          <p class="paper-meta">R. Tandon and S. Ulukus<br /><span class="paper-venue">IEEE International Conference on Communications (ICC), Dresden, Germany, June 2009.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20the%20Rate-limited%20Gelfand-Pinsker%20problem" target="_blank" rel="noopener">On the Rate-limited Gelfand-Pinsker problem</a></h3>
+          <p class="paper-meta">R. Tandon and S. Ulukus<br /><span class="paper-venue">IEEE International Symposium on Information Theory (ISIT), Seoul, Korea, June 2009.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=A%20New%20Upper%20Bound%20for%20a%20Binary%20Additive%20Noisy%20Multiple%20Access%20Channel%20with%20Feedback" target="_blank" rel="noopener">A New Upper Bound for a Binary Additive Noisy Multiple Access Channel with Feedback</a></h3>
+          <p class="paper-meta">R. Tandon and S. Ulukus<br /><span class="paper-venue">IEEE Global Communications Conference (GLOBECOM), New Orleans, LA, November 2008.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=A%20New%20Upper%20Bound%20on%20the%20Capacity%20of%20a%20Class%20of%20Primitive%20Relay%20Channels" target="_blank" rel="noopener">A New Upper Bound on the Capacity of a Class of Primitive Relay Channels</a></h3>
+          <p class="paper-meta">R. Tandon and S. Ulukus<br /><span class="paper-venue">46th Annual Allerton Conference on Communications, Control and Computing, Monticello, IL, September 2008.</span></p>
+        </article>
+        <article class="paper">
+          <h3 class="paper-title"><a href="https://scholar.google.com/scholar?q=On%20Dependence%20Balance%20Bounds%20for%20Two-Way%20Channels" target="_blank" rel="noopener">On Dependence Balance Bounds for Two-Way Channels</a></h3>
+          <p class="paper-meta">R. Tandon and S. Ulukus<br /><span class="paper-venue">41st Asilomar Conference on Signals, Systems and Computers, Pacific Grove, CA, November 2007.</span></p>
+        </article>
+      </div>
+    </section>
+
+    <div class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="students.html">Students</a>
+    </div>
+  </main>
+  <a class="floating-top" href="#top" aria-label="Back to top">↑</a>
+</body>
+</html>
