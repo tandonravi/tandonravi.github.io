@@ -1,369 +1,467 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Metadata for the Webpage -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Students | Ravi Tandon</title>
-
-  <!-- Favicons -- We recommend this site for generating favicons: https://www.favicon-generator.org/ -->
-  <link rel="apple-touch-icon" sizes="57x57" href="favicons_me/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="favicons_me/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="favicons_me/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="favicons_me/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="favicons_me/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="favicons_me/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="favicons_me/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="favicons_me/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="favicons_me/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="favicons_me/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicons_me/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="favicons_me/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicons_me/favicon-16x16.png">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
-
-  <!-- Bootstrap CSS files-->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-
-  <!-- jQuery UI CSS (optional) -->
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-
-  <!-- Google web fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome Web Icons -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-  <!-- Academicons Courtesy of https://jpswalsh.github.io/academicons/ -->
-  <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
-
-  <!-- Local styles -->
-  <link rel="stylesheet" href="css/main.css">
-
   <style>
-    /* .panel-body {
-      background-color: #f6f7fb;
-    } */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap');
 
-    /* #projects .panel:hover {
-      box-shadow: 3px 3px 10px lightgray;
-    } */
+    :root {
+      --bg: #f7f5f0;
+      --surface: #fffdf8;
+      --surface-soft: #f2efe7;
+      --ink: #1f1f1d;
+      --muted: #65645f;
+      --soft: #8a8982;
+      --line: #dedbd2;
+      --accent: #8f3f2b;
+      --accent-soft: #f4e7df;
+      --card: linear-gradient(135deg, #f6eadf 0%, #efe8dd 48%, #e8dfd2 100%);
+    }
 
-    .panel-title {
-      font-weight: bold !important;
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(31, 31, 29, 0.24);
+      transition: color 140ms ease, border-color 140ms ease;
+    }
+
+    a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .page {
+      width: min(1080px, calc(100% - 40px));
+      margin: 32px auto;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+    }
+
+    .topbar {
+      padding: 24px 72px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .topbar a {
+      color: var(--muted);
+      width: fit-content;
+    }
+
+    .hero {
+      padding: 56px 72px 44px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h1 {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(56px, 7vw, 88px);
+      line-height: 1.0;
+      letter-spacing: -0.045em;
+      margin: 0 0 22px;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .hero-note {
+      margin: 0;
+      max-width: 820px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .section {
+      padding: 42px 72px 52px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section:last-of-type { border-bottom: none; }
+
+    .section-header {
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(34px, 4vw, 48px);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .people-list {
+      display: grid;
+      gap: 14px;
+      max-width: 920px;
+    }
+
+    .person-card {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr);
+      gap: 20px;
+      align-items: start;
+      border: 1px solid #d2c6b8;
+      border-radius: 20px;
+      background: var(--card);
+      padding: 18px 21px;
+    }
+
+    .person-photo {
+      width: 112px;
+      height: 112px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(31, 31, 29, 0.12);
+      background: rgba(255, 253, 248, 0.55);
+    }
+
+    .person-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .person-name {
+      margin: 0 0 7px;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 24px;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .person-text {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .career-line {
+      display: block;
+      margin-top: 4px;
+    }
+
+    .career-line::before {
+      content: "↳";
+      display: inline-block;
+      margin-right: 8px;
+      color: var(--accent);
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1;
+      transform: translateY(1px);
+    }
+
+    .career-arrow {
+      display: inline-block;
+      margin: 0 4px;
+      color: var(--accent);
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+
+    .current-affiliation {
+      color: var(--ink);
+      font-weight: 750;
+    }
+
+    .award-line {
+      display: block;
+      margin-top: 3px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .compact-list {
+      display: grid;
+      gap: 12px;
+      max-width: 860px;
+    }
+
+    .compact-card {
+      border: 1px solid #d2c6b8;
+      border-radius: 18px;
+      background: var(--card);
+      padding: 15px 21px;
+    }
+
+    .compact-name {
+      margin: 0 0 5px;
+      color: var(--ink);
+      font-size: 16.5px;
+      line-height: 1.28;
+      font-weight: 650;
+      letter-spacing: -0.015em;
+    }
+
+    .compact-text {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.42;
+      font-weight: 500;
+    }
+
+    .footer-nav {
+      padding: 28px 72px 72px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 12px 16px;
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .footer-nav a:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    @media (max-width: 860px) {
+      .page { width: min(100% - 24px, 1080px); margin: 16px auto; border-radius: 22px; }
+      .topbar, .hero, .section, .footer-nav { padding-left: 28px; padding-right: 28px; }
+      .topbar { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .hero { padding-top: 44px; padding-bottom: 36px; }
+      .section { padding-top: 34px; padding-bottom: 42px; }
+      .person-card { grid-template-columns: 88px minmax(0, 1fr); gap: 16px; }
+      .person-photo { width: 88px; height: 88px; border-radius: 15px; }
+      .person-name { font-size: 21px; }
+      .footer-nav { padding-bottom: 42px; }
+    }
+
+    @media (max-width: 560px) {
+      .person-card { grid-template-columns: 1fr; }
+      .person-photo { width: 104px; height: 104px; }
     }
   </style>
-
 </head>
-
 <body>
-
-  <!-- navbar include -->
-  <div id="navbar-include"></div>
-
-  <div class="spacer-div-3 hidden-xs hidden-xs"></div>
-
-  <!-- Main content    -->
-  <div id="main-container" class="container">
-
-    <div class="row">
-      <div class="col-sm-12">
-        
-      </div>
-
+  <main class="page">
+    <div class="topbar">
+      <a href="index.html">← Ravi Tandon</a>
+      <a href="mailto:tandonr@arizona.edu">tandonr@arizona.edu</a>
     </div>
 
-    <div class="row push-down-1" id="projects">
+    <section class="hero">
+      <h1>Students</h1>
+    </section>
 
-    <h3 class="push-down-3"><span>Current Ph.D. Students</span></h3>
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Current Ph.D. Students</h2>
+      </div>
 
-        <ul id="education">
-    
-<table style="border: none;">
-  <tr>
-    <td style="width: 18%; padding: 10px; border: none;"><img src="img/meiyu.jpeg" width="150px"></td>
-    <td style="width: 18%; padding: 10px; border: none;">
-      <p style="font-size: 18px;"><a href="https://meiyuzhong.github.io/">Meiyu Zhong</a></p>
-    </td>
-    <td>
-      <p>Meiyu Zhong started the PhD program in ECE at the University of Arizona in 2021. She obtained her B.S. degree from Shanghai University in 2019 and M.S. degree from University of Southern California in 2021. Her research interests include Trustworthy Machine Learning with a special forcus on Robustness and Fairness in Machine Learning. She has interned at Micron Technology in 2024. </p>
-    </td>
-  </tr>
-</table>
+      <div class="people-list">
+        <article class="person-card">
+          <div class="person-photo"><img src="img/meiyu.jpeg" alt="Meiyu Zhong" /></div>
+          <div>
+            <h3 class="person-name"><a href="https://meiyuzhong.github.io/" target="_blank" rel="noopener">Meiyu Zhong</a></h3>
+            <p class="person-text">Meiyu Zhong started the Ph.D. program in ECE at the University of Arizona in 2021. She obtained her B.S. degree from Shanghai University in 2019 and M.S. degree from the University of Southern California in 2021. Her research interests include trustworthy machine learning, with a focus on robustness and fairness in machine learning. She interned at Micron Technology in 2024.</p>
+          </div>
+        </article>
 
-<table style="border: none;">
-  <tr>
-    <td style="width: 18%; padding: 10px; border: none;"><img src="img/fengwei.png" width="150px"></td>
-    <td style="width: 18%; padding: 10px; border: none;">
-      <p style="font-size: 18px;"><a href="https://sites.google.com/arizona.edu/fengweitian/home">Fengwei Tian</a></p> 
-    </td>
-    <td>
-      <p>Fengwei Tian started the PhD program in ECE at the University of Arizona in 2022. He obtained his B.S. degree from University of Calgary in 2020 and M.S. degree from University of Pennsylvania in 2022. His research interests include trustworthy machine learning, with a focus on data privacy and privacy preserving learning and inference. </p>
-    </td>
-  </tr>
-</table>
+        <article class="person-card">
+          <div class="person-photo"><img src="img/fengwei.png" alt="Fengwei Tian" /></div>
+          <div>
+            <h3 class="person-name"><a href="https://sites.google.com/arizona.edu/fengweitian/home" target="_blank" rel="noopener">Fengwei Tian</a></h3>
+            <p class="person-text">Fengwei Tian started the Ph.D. program in ECE at the University of Arizona in 2022. He obtained his B.S. degree from the University of Calgary in 2020 and M.S. degree from the University of Pennsylvania in 2022. His research interests include trustworthy machine learning, with a focus on data privacy and privacy-preserving learning and inference.</p>
+          </div>
+        </article>
 
-<table style="border: none;">
-  <tr>
-    <td style="width: 18%; padding: 10px; border: none;"><img src="img/payel.jpg" width="150px"></td>
-    <td style="width: 18%; padding: 10px; border: none;">
-      <p style="font-size: 18px;"><a href="https://payelbhattacharjee14.github.io/">Payel Bhattacharjee</a></p>
-    </td>
-    <td>
-      <p>Payel Bhattacharjee started the PhD program in ECE at the University of Arizona in 2022. She obtained her B.Tech degree in Electrotics and Teleommunication Engineering from KIIT University, Bhubaneswar, India in 2021. She worked as an Associate Software Engineer at Bosch Global Software Technologies from 2021 to 2022. Her current research focuses on Trustworthy Machine Learning, Differential Privacy, Causal Inference and Causal Graph Discovery. </p>
-    </td>
-  </tr>
-</table>
+        <article class="person-card">
+          <div class="person-photo"><img src="img/payel.jpg" alt="Payel Bhattacharjee" /></div>
+          <div>
+            <h3 class="person-name"><a href="https://payelbhattacharjee14.github.io/" target="_blank" rel="noopener">Payel Bhattacharjee</a></h3>
+            <p class="person-text">Payel Bhattacharjee started the Ph.D. program in ECE at the University of Arizona in 2022. She obtained her B.Tech. degree in Electronics and Telecommunication Engineering from KIIT University, Bhubaneswar, India in 2021. She worked as an Associate Software Engineer at Bosch Global Software Technologies from 2021 to 2022. Her current research focuses on trustworthy machine learning, differential privacy, causal inference, and causal graph discovery.</p>
+          </div>
+        </article>
 
-          <table style="border: none;">
-  <tr>
-    <td style="width: 18%; padding: 10px; border: none;"><img src="img/vimal.jpg" width="150px"></td>
-    <td style="width: 18%; padding: 10px; border: none;">
-      <p style="font-size: 18px;"><a href="https://vimalwill.github.io/">Vimal William</a></p>
-    </td>
-    <td>
-      <p>Vimal William started the Ph.D. program in ECE at the University of Arizona in 2025 (co-advised with Dr. Jyotikrishna Dass). 
-        Vimal earned his B.E. in Electronics and Communication Engineering from Anna University, India in 2023. 
-        From 2023 to 2025, he worked as a System Software Engineer (Edge AI) at SandLogic Technologies, India, focusing on ML systems and AI accelerators. 
-        His research interests lie at the intersection of machine learning, hardware/software co-design, and computer architecture.
-     </p>
-    </td>
-  </tr>
-</table>
+        <article class="person-card">
+          <div class="person-photo"><img src="img/vimal.jpg" alt="Vimal William" /></div>
+          <div>
+            <h3 class="person-name"><a href="https://vimalwill.github.io/" target="_blank" rel="noopener">Vimal William</a></h3>
+            <p class="person-text">Vimal William started the Ph.D. program in ECE at the University of Arizona in 2025, co-advised with Dr. Jyotikrishna Dass. He earned his B.E. in Electronics and Communication Engineering from Anna University, India in 2023. From 2023 to 2025, he worked as a System Software Engineer in Edge AI at SandLogic Technologies, India, focusing on ML systems and AI accelerators. His research interests lie at the intersection of machine learning, hardware/software co-design, and computer architecture.</p>
+          </div>
+        </article>
+      </div>
+    </section>
 
-        </ul>
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Former Ph.D. Students</h2>
+      </div>
 
-     <h3 class="push-down-3"><span>Former Ph.D. Students</span></h3>
+      <div class="people-list">
+        <article class="person-card">
+          <div class="person-photo"><img src="img/jesse.png" alt="Jesse Friedbaum" /></div>
+          <div>
+            <h3 class="person-name"><a href="https://www.linkedin.com/in/jesse-friedbaum-3009b9369/" target="_blank" rel="noopener">Jesse Friedbaum</a></h3>
+            <p class="person-text">Ph.D., University of Arizona, 2025.<span class="career-line"><span class="current-affiliation">Pacific Northwest National Laboratory (PNNL)</span></span></p>
+          </div>
+        </article>
 
-   <table style="border: none;">
-  <tr>
-    <td style="width: 18%; padding: 10px; border: none;"><img src="img/jesse.png" width="150px"></td>
-    <td style="width: 18%; padding: 10px; border: none;">
-      <p style="font-size: 18px;"><a href="https://www.linkedin.com/in/jesse-friedbaum-3009b9369/">Jesse Friedbaum</a></p> 
-    </td>
-    <td>
- <p>Ph.D. from University of Arizona in 2025.<br>
-    Currently at Pacific Northwest National Laboratory (PNNL)<br>
-</p>
-    </td>
-      
-  </tr>
-</table>
+        <article class="person-card">
+          <div class="person-photo"><img src="img/noel.jpeg" alt="Noel Teku" /></div>
+          <div>
+            <h3 class="person-name"><a href="https://www.linkedin.com/in/noel-teku-13bbb034b/" target="_blank" rel="noopener">Noel Teku</a></h3>
+            <p class="person-text">Ph.D., University of Arizona, 2025, co-advised with Prof. T. Bose.<span class="career-line"><span class="current-affiliation">Applied Intuition</span></span><span class="award-line">Outstanding Graduate Student Award, College of Engineering, 2025.</span></p>
+          </div>
+        </article>
 
-      
-      <table style="border: none;">
-  <tr>
-    <td style="width: 18%; padding: 10px; border: none;"><img src="img/noel.jpeg" width="150px"></td>
-    <td style="width: 18%; padding: 10px; border: none;">
-      <p style="font-size: 18px;"><a href="https://www.linkedin.com/in/noel-teku-13bbb034b/">Noel Teku</a></p> 
-    </td>
-    <td>
- <p>Ph.D. from University of Arizona in 2025 (co-advised with Prof. T. Bose).<br>
-    Currently at Applied Intuition<br>
-    Outstanding Graduate Student Award, College of Engineering, 2025 <br></p>
-    </td>
-      
-  </tr>
-</table>
+        <article class="person-card">
+          <div class="person-photo"><img src="img/sudarshan.JPG" alt="Sudarshan Adiga" /></div>
+          <div>
+            <h3 class="person-name"><a href="https://adigasudarshan.com/" target="_blank" rel="noopener">Sudarshan Adiga</a></h3>
+            <p class="person-text">Ph.D., University of Arizona, 2024.<span class="career-line"><span class="current-affiliation">Marvell Technology</span></span></p>
+          </div>
+        </article>
 
-<table style="border: none;">
-  <tr>
-    <td style="width: 18%; padding: 10px; border: none;"><img src="img/sudarshan.JPG" width="150px"></td>
-    <td style="width: 18%; padding: 10px; border: none;">
-      <p style="font-size: 18px;"><a href="https://adigasudarshan.com/">Sudarshan Adiga</a></p> 
-    </td>
-    <td>
-      <p>Ph.D. from University of Arizona in 2024.<br>
-    Currently at Marvell Technology<br></p>
-    </td>
-  </tr>
-</table>
+        <article class="person-card">
+          <div class="person-photo"><img src="img/bojiang.jpeg" alt="Bo Jiang" /></div>
+          <div>
+            <h3 class="person-name"><a href="https://www.linkedin.com/in/bo-jiang-50a068138/" target="_blank" rel="noopener">Bo Jiang</a></h3>
+            <p class="person-text">Ph.D., University of Arizona, 2023, co-advised with Prof. M. Li.<span class="career-line">TikTok <span class="career-arrow">→</span> <span class="current-affiliation">Apple</span></span><span class="award-line">Outstanding Graduate Student Award, College of Engineering, 2023.</span></p>
+          </div>
+        </article>
 
-      <table style="border: none;">
-  <tr>
-    <td style="width: 18%; padding: 10px; border: none;"><img src="img/bojiang.jpeg" width="150px"></td>
-    <td style="width: 18%; padding: 10px; border: none;">
-      <p style="font-size: 18px;"><a href="https://www.linkedin.com/in/bo-jiang-50a068138/">Bo Jiang</a></p> 
-    </td>
-    <td>
-      <p>Ph.D. from University of Arizona in 2023 (co-advised with Prof. M. Li).<br>
-    Currently at Apple<br>
-    Outstanding Graduate Student Award, College of Engineering, 2023 <br></p>
-    </td>
-  </tr>
-</table>
+        <article class="person-card">
+          <div class="person-photo"><img src="img/weiting.jpeg" alt="Wei-Ting Chang" /></div>
+          <div>
+            <h3 class="person-name"><a href="https://www.linkedin.com/in/wei-ting-chang-37b26b9a" target="_blank" rel="noopener">Wei-Ting Chang</a></h3>
+            <p class="person-text">Ph.D., University of Arizona, 2022.<span class="career-line"><span class="current-affiliation">NXP Semiconductors</span></span></p>
+          </div>
+        </article>
 
-        <table style="border: none;">
-  <tr>
-    <td style="width: 18%; padding: 10px; border: none;"><img src="img/weiting.jpeg" width="150px"></td>
-    <td style="width: 18%; padding: 10px; border: none;">
-      <p style="font-size: 18px;"><a href="https://www.linkedin.com/in/wei-ting-chang-37b26b9a">Wei-Ting Chang</a></p> 
-    </td>
-    <td>
-      <p>Ph.D. from University of Arizona in 2022.<br>
+        <article class="person-card">
+          <div class="person-photo"><img src="img/mohamedseif.jpeg" alt="Mohamed Seif" /></div>
+          <div>
+            <h3 class="person-name"><a href="https://m-seif2026.github.io/" target="_blank" rel="noopener">Mohamed Seif</a></h3>
+            <p class="person-text">Ph.D., University of Arizona, 2022, co-advised with Prof. M. Li.<span class="career-line"><span class="current-affiliation">Princeton University</span></span></p>
+          </div>
+        </article>
 
-     Currently at NXP Semiconductors<br></p>
-    </td>
-  </tr>
-</table>
+        <article class="person-card">
+          <div class="person-photo"><img src="img/turepeken.png" alt="Ture Peken" /></div>
+          <div>
+            <h3 class="person-name"><a href="https://www.linkedin.com/in/ture-peken-ph-d-4675753b/" target="_blank" rel="noopener">Ture Peken</a></h3>
+            <p class="person-text">Ph.D., University of Arizona, 2021, co-advised with Prof. T. Bose.<span class="career-line">Keysight Technologies <span class="career-arrow">→</span> <span class="current-affiliation">Apple</span></span></p>
+          </div>
+        </article>
 
-      <table style="border: none;">
-  <tr>
-    <td style="width: 18%; padding: 10px; border: none;"><img src="img/mohamedseif.jpeg" width="150px"></td>
-    <td style="width: 18%; padding: 10px; border: none;">
-      <p style="font-size: 18px;"><a href="https://m-seif2026.github.io/">Mohamed Seif</a></p> 
-    </td>
-    <td>
-      <p>Ph.D. from University of Arizona in 2022 (co-advised with Prof. M. Li).<br>
+        <article class="person-card">
+          <div class="person-photo"><img src="img/jeanmutangana.jpeg" alt="Jean de Dieu Mutangana" /></div>
+          <div>
+            <h3 class="person-name"><a href="https://www.linkedin.com/in/jean-de-dieu-mutangana-ph-d-68297331/" target="_blank" rel="noopener">Jean de Dieu Mutangana</a></h3>
+            <p class="person-text">Ph.D., University of Arizona, 2021.<span class="career-line"><span class="current-affiliation">Ford</span></span></p>
+          </div>
+        </article>
 
-     Currently at Princeton University<br></p>
-    </td>
-  </tr>
-</table>
+        <article class="person-card">
+          <div class="person-photo"><img src="img/mohamedattia.jpeg" alt="Mohamed Attia" /></div>
+          <div>
+            <h3 class="person-name"><a href="https://www.linkedin.com/in/mohamed-a-attia-624960116/" target="_blank" rel="noopener">Mohamed Attia</a></h3>
+            <p class="person-text">Ph.D., University of Arizona, 2020.<span class="career-line"><span class="current-affiliation">Samsung</span></span></p>
+          </div>
+        </article>
 
+        <article class="person-card">
+          <div class="person-photo"><img src="img/aviksengupta.jpeg" alt="Avik Sengupta" /></div>
+          <div>
+            <h3 class="person-name"><a href="https://www.linkedin.com/in/aviksg/" target="_blank" rel="noopener">Avik Sengupta</a></h3>
+            <p class="person-text">Ph.D., Virginia Tech, 2016, co-advised with Prof. T. Clancy.<span class="career-line">Intel <span class="career-arrow">→</span> Meta <span class="career-arrow">→</span> <span class="current-affiliation">Google</span></span></p>
+          </div>
+        </article>
 
-         <table style="border: none;">
-  <tr>
-    <td style="width: 18%; padding: 10px; border: none;"><img src="img/turepeken.png" width="150px"></td>
-    <td style="width: 18%; padding: 10px; border: none;">
-      <p style="font-size: 18px;"><a href="https://www.linkedin.com/in/ture-peken-ph-d-4675753b/">Ture Peken</a></p> 
-    </td>
-    <td>
-      <p>Ph.D. from University of Arizona in 2021 (co-advised with Prof. T Bose).<br>
+        <article class="person-card">
+          <div class="person-photo"><img src="img/Akshaykumar.jpeg" alt="Akshay Kumar" /></div>
+          <div>
+            <h3 class="person-name"><a href="https://www.linkedin.com/in/akshaykumarvt/" target="_blank" rel="noopener">Akshay Kumar</a></h3>
+            <p class="person-text">Ph.D., Virginia Tech, 2016, co-advised with Prof. T. Clancy.<span class="career-line">VT iDirect <span class="career-arrow">→</span> Qualcomm <span class="career-arrow">→</span> <span class="current-affiliation">Google</span></span></p>
+          </div>
+        </article>
+      </div>
+    </section>
 
-     Currently at Apple<br></p>
-    </td>
-  </tr>
-</table>
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Former M.S. Students</h2>
+      </div>
 
+      <div class="compact-list">
+        <article class="compact-card">
+          <h3 class="compact-name"><a href="https://www.linkedin.com/in/deepak-kumar-96bb2375/" target="_blank" rel="noopener">Deepak Kumar</a></h3>
+          <p class="compact-text">M.S., University of Arizona, 2018. Currently at Arrow Electronics, Phoenix, AZ.</p>
+        </article>
 
-        <table style="border: none;">
-  <tr>
-    <td style="width: 18%; padding: 10px; border: none;"><img src="img/jeanmutangana.jpeg" width="150px"></td>
-    <td style="width: 18%; padding: 10px; border: none;">
-      <p style="font-size: 18px;"><a href="https://www.linkedin.com/in/jean-de-dieu-mutangana-ph-d-68297331/">Jean de Dieu Mutangana</a></p> 
-    </td>
-    <td>
-      <p>Ph.D. from University of Arizona in 2021.<br>
+        <article class="compact-card">
+          <h3 class="compact-name"><a href="https://www.linkedin.com/in/sudarshan-adiga-a399629b/" target="_blank" rel="noopener">Sudarshan Adiga</a></h3>
+          <p class="compact-text">M.S., University of Arizona, 2019. Later a Ph.D. student at the University of Arizona.</p>
+        </article>
 
-     Currently at Ford<br></p>
-    </td>
-  </tr>
-</table>
+        <article class="compact-card">
+          <h3 class="compact-name"><a href="https://www.linkedin.com/in/robinyuarizona/" target="_blank" rel="noopener">Robin Yadav</a></h3>
+          <p class="compact-text">M.S., University of Arizona, 2020. Later a Ph.D. student at Arizona State University, Tempe, AZ.</p>
+        </article>
+      </div>
+    </section>
 
-       <table style="border: none;">
-  <tr>
-    <td style="width: 18%; padding: 10px; border: none;"><img src="img/mohamedattia.jpeg" width="150px"></td>
-    <td style="width: 18%; padding: 10px; border: none;">
-      <p style="font-size: 18px;"><a href="https://www.linkedin.com/in/mohamed-a-attia-624960116/">Mohamed Attia</a></p> 
-    </td>
-    <td>
-      <p>Ph.D. from University of Arizona in 2020.<br>
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Former Undergraduate Students</h2>
+      </div>
 
-     Currently at Samsung<br></p>
-    </td>
-  </tr>
-</table>
+      <div class="compact-list">
+        <article class="compact-card">
+          <h3 class="compact-name"><a href="https://www.linkedin.com/in/patrick-kelly-683b6211/" target="_blank" rel="noopener">Patrick Kelley</a></h3>
+        </article>
 
-             <table style="border: none;">
-  <tr>
-    <td style="width: 18%; padding: 10px; border: none;"><img src="img/aviksengupta.jpeg" width="150px"></td>
-    <td style="width: 18%; padding: 10px; border: none;">
-      <p style="font-size: 18px;"><a href="https://www.linkedin.com/in/aviksg/">Avik Sengupta</a></p> 
-    </td>
-    <td>
-      <p>Ph.D. from Virginia Tech in 2016 (co-advised with Prof. T. Clancy).<br>
+        <article class="compact-card">
+          <h3 class="compact-name"><a href="https://www.linkedin.com/in/collin-reed-5b01b8137/" target="_blank" rel="noopener">Collin Reed</a></h3>
+        </article>
+      </div>
+    </section>
 
-     Currently at Google<br></p>
-    </td>
-  </tr>
-</table>
-
-
-           <table style="border: none;">
-  <tr>
-    <td style="width: 18%; padding: 10px; border: none;"><img src="img/Akshaykumar.jpeg" width="150px"></td>
-    <td style="width: 18%; padding: 10px; border: none;">
-      <p style="font-size: 18px;"><a href="https://www.linkedin.com/in/akshaykumarvt/">Akshay Kumar</a></p> 
-    </td>
-    <td>
-      <p>Ph.D. from Virginia Tech in 2016 (co-advised with Prof. T. Clancy).<br>
-
-     Currently at Google<br></p>
-    </td>
-  </tr>
-</table>
-
-      
- <h3 class="push-down-3"><span>Former M.S. Students</span></h3><br>
-
-<b> <a  href="https://www.linkedin.com/in/deepak-kumar-96bb2375/"> Deepak Kumar </a> </b><br>
-
-    M.S. from University of Arizona, 2018<br>
-
-     Currently at Arrow Electronics, Phoenix, AZ<br>
-
- <b> <a  href="https://www.linkedin.com/in/sudarshan-adiga-a399629b/"> Sudarshan Adiga </a> </b><br>
-
-     M.S. from University of Arizona, 2019<br>
-
-     Currently a Ph.D. student at University of Arizona.<br>
-
- <b> <a  href="https://www.linkedin.com/in/robinyuarizona/"> Robin Yadav </a> </b><br>
-
-     M.S. from University of Arizona, 2020<br>
-
-     Currently a Ph.D. student at Arizona State University, Tempe, AZ.<br>
-
-<h3 class="push-down-3"><span>Former Undergraduate Students</span></h3>
-  <b> <a  href="https://www.linkedin.com/in/patrick-kelly-683b6211/"> Patrick Kelley </a> </b><br>
-
-  <b> <a  href="https://www.linkedin.com/in/collin-reed-5b01b8137/"> Collin Reed </a> </b><br>
-
-
-
-  <!-- Back-to-top button -->
-  <a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
-
-  <!-- footer include -->
-  <div w3-include-html="footer.html"></div>
-
-  <!-- jQuery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-  <!-- Bootstrap JS Library -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-
-  <!-- html file include script | used for navbar and footer -->
-  <script src="js/w3data.js"></script>
-  <script>
-    w3IncludeHTML()
-  </script>
-
-  <!-- Local scripts -->
-  <script src="js/main.js"></script>
-
-  <script>
-
-  $(document).ready(function() {
-
-    $("#navbar-include").load("navbar.html", function() {
-
-      $("#home").removeClass("active");
-      $("#experience").addClass("active");
-
-    });
-
-  });
-
-
-  </script>
-
+    <div class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+    </div>
+  </main>
 </body>
-
 </html>
