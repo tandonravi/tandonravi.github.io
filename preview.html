@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home | Ravi Tandon</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap');
+
+    :root {
+      --bg: #f7f5f0;
+      --surface: #fffdf8;
+      --surface-soft: #f2efe7;
+      --ink: #1f1f1d;
+      --muted: #65645f;
+      --soft: #8a8982;
+      --line: #dedbd2;
+      --accent: #8f3f2b;
+      --accent-soft: #f4e7df;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(31, 31, 29, 0.24);
+      transition: color 140ms ease, border-color 140ms ease;
+    }
+
+    a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .page {
+      width: min(1080px, calc(100% - 40px));
+      margin: 32px auto;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 210px;
+      gap: 64px;
+      padding: 72px 72px 58px;
+      border-bottom: 1px solid var(--line);
+      align-items: end;
+    }
+
+    h1 {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(56px, 7vw, 88px);
+      line-height: 1.0;
+      letter-spacing: -0.045em;
+      margin: 0 0 28px;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .identity {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-width: 520px;
+      font-size: 16px;
+      line-height: 1.42;
+      color: var(--muted);
+      font-weight: 450;
+    }
+
+    .identity a {
+      color: var(--muted);
+      width: fit-content;
+    }
+
+    .identity a:hover { color: var(--accent); }
+
+    .photo {
+      width: 210px;
+      height: 210px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, #ece8dd, #faf7ef);
+      overflow: hidden;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .bio {
+      padding: 48px 72px;
+      border-bottom: 1px solid var(--line);
+      font-size: 16px;
+      color: var(--ink);
+    }
+
+    .bio p {
+      max-width: 820px;
+      margin: 0 0 20px;
+      text-align: left;
+    }
+
+    .bio p:last-child { margin-bottom: 0; }
+
+    .intro {
+      padding: 58px 72px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .themes-panel {
+      padding: 0;
+    }
+
+    .theme-heading {
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(36px, 4.5vw, 52px);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .theme-note {
+      margin: 18px 0 34px;
+      max-width: 820px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.65;
+      text-align: left;
+    }
+
+    .areas {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .area {
+      min-height: 130px;
+      padding: 20px;
+      border: 1px solid #d2c6b8;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #f6eadf 0%, #efe8dd 48%, #e8dfd2 100%);
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+    }
+
+    .area:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, #fff4ea 0%, #f4ece1 48%, #ece2d5 100%);
+      border-color: #c4b5a6;
+    }
+
+    .area h3 {
+      margin: 0 0 12px;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 21px;
+      line-height: 1.08;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.035em;
+    }
+
+    .area p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.48;
+    }
+
+    .area p span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .cards {
+      padding: 28px 72px 72px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      background: var(--surface);
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 18px 20px;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      background: var(--surface-soft);
+      text-decoration: none;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      background: var(--accent-soft);
+      border-color: #d5c3b7;
+      text-decoration: none;
+    }
+
+    .num {
+      display: none;
+    }
+
+    .card h2 {
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 22px;
+      margin: 0;
+      letter-spacing: -0.035em;
+      line-height: 1;
+      font-weight: 600;
+    }
+
+    .view {
+      margin-top: 0;
+      font-size: 16px;
+      color: var(--soft);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    @media (max-width: 760px) {
+      .page { width: min(100% - 24px, 1080px); margin: 16px auto; border-radius: 22px; }
+      .hero { grid-template-columns: 1fr; padding: 44px 28px 36px; gap: 28px; align-items: start; }
+      .photo { width: 180px; height: 180px; }
+      .bio, .intro, .cards { padding-left: 28px; padding-right: 28px; }
+      .bio { padding-top: 36px; padding-bottom: 36px; }
+      .intro { padding-top: 42px; padding-bottom: 42px; }
+      .areas, .cards { grid-template-columns: 1fr; }
+      .area p span { white-space: normal; }
+      .cards { padding-top: 0; padding-bottom: 42px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+
+    <section class="hero">
+      <div>
+        <h1>Ravi Tandon</h1>
+        <div class="identity">
+          <div>Professor, ECE</div>
+          <div>University of Arizona</div>
+          <div>Contact: <a href="mailto:tandonr@arizona.edu">tandonr@arizona.edu</a></div>
+          <div><a href="https://scholar.google.com/citations?user=u-lTHjcAAAAJ&hl=en&oi=sra" target="_blank" rel="noopener">Google Scholar</a></div>
+          <div><a href="https://www.youtube.com/@EntropicLab" target="_blank" rel="noopener">YouTube</a></div>
+        </div>
+      </div>
+
+      <div class="photo"><img src="RTimage.png" alt="Photo of Ravi Tandon" /></div>
+    </section>
+
+    <section class="bio">
+      <p>
+        Ravi Tandon is a Professor and the Craig M. Berge Faculty Fellow in the <a href="https://ece.engineering.arizona.edu/">Department of Electrical and Computer Engineering</a> at the <a href="https://www.arizona.edu/">University of Arizona</a>, where he also holds a courtesy appointment in Applied Mathematics. He received the Ph.D. degree in Electrical and Computer Engineering from the <a href="https://www.umd.edu/">University of Maryland, College Park</a> in 2010, and the B.Tech. degree in Electrical Engineering from the <a href="https://www.iitk.ac.in/">Indian Institute of Technology Kanpur</a> in 2004. He was a postdoctoral research associate at <a href="https://www.princeton.edu/">Princeton University</a> from 2010 to 2012, and held positions at Virginia Tech from 2012 to 2015.
+      </p>
+      <p>
+        His research interests include <a href="research.html">trustworthy machine learning</a>, privacy-preserving AI, federated and distributed learning, large language models, speculative decoding, uncertainty quantification, wireless communications, and information theory. He is a recipient of the NSF CAREER Award, the Keysight Early Career Professor Award, and a Best Paper Award at IEEE Globecom. He has served as an Associate Editor for IEEE Transactions on Information Theory, IEEE Transactions on Wireless Communications, and IEEE Transactions on Communications.
+      </p>
+    </section>
+
+    <section class="intro">
+      <div class="themes-panel">
+        <h2 class="theme-heading">Current Research Themes</h2>
+        <p class="theme-note">
+          My work focuses on foundations and systems for AI that remain reliable under privacy constraints, distributed deployment, uncertainty, and adversarial or resource-limited settings. This work has been supported by funding from NSF, NIH, DOE, and industry partners.
+        </p>
+
+        <div class="areas">
+          <div class="area">
+            <h3>Privacy &amp; Security in AI</h3>
+            <p><span>Differential privacy and inference privacy</span><span>Private LLM fine-tuning and alignment</span><span>Secure AI workflows</span></p>
+          </div>
+          <div class="area">
+            <h3>Information Theory</h3>
+            <p><span>Learning, communication, and coding</span><span>Fundamental limits of</span><span>distributed and networked systems</span></p>
+          </div>
+          <div class="area">
+            <h3>Trustworthy Machine Learning</h3>
+            <p><span>Uncertainty quantification</span><span>Robustness and certified defenses</span><span>Reliable prediction and decisions</span></p>
+          </div>
+          <div class="area">
+            <h3>Efficient AI Systems</h3>
+            <p><span>Federated and distributed learning</span><span>Resource-aware inference and design</span><span>Edge, cloud, and wireless AI systems</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cards">
+      <a class="card" href="research.html">
+        <div>
+          <div class="num">01</div>
+          <h2>Research</h2>
+        </div>
+        <div class="view">View →</div>
+      </a>
+
+      <a class="card" href="teaching.html">
+        <div>
+          <div class="num">02</div>
+          <h2>Teaching</h2>
+        </div>
+        <div class="view">View →</div>
+      </a>
+
+      <a class="card" href="students.html">
+        <div>
+          <div class="num">03</div>
+          <h2>Students</h2>
+        </div>
+        <div class="view">View →</div>
+      </a>
+    </section>
+  </main>
+</body>
+</html>
