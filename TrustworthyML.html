@@ -1,206 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- Metadata for the Webpage -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trustworthy Machine Learning Course (Spring 2025)| Ravi Tandon</title>
-
-  <!-- Favicons -- We recommend this site for generating favicons: https://www.favicon-generator.org/ -->
-  <link rel="apple-touch-icon" sizes="57x57" href="favicons_me/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="favicons_me/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="favicons_me/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="favicons_me/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="favicons_me/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="favicons_me/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="favicons_me/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="favicons_me/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="favicons_me/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="favicons_me/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicons_me/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="favicons_me/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicons_me/favicon-16x16.png">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
-
-  <!-- Bootstrap CSS files-->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-
-  <!-- jQuery UI CSS (optional) -->
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-
-  <!-- Google web fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome Web Icons -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-  <!-- Academicons Courtesy of https://jpswalsh.github.io/academicons/ -->
-  <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
-
-  <!-- Local styles -->
-  <link rel="stylesheet" href="css/main.css">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trustworthy Machine Learning Course (Spring 2025) | Ravi Tandon</title>
   <style>
-    /* .panel-body {
-      background-color: #f6f7fb;
-    } */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap');
 
-    /* #projects .panel:hover {
-      box-shadow: 3px 3px 10px lightgray;
-    } */
+    :root {
+      --bg: #f7f5f0;
+      --surface: #fffdf8;
+      --surface-soft: #f2efe7;
+      --ink: #1f1f1d;
+      --muted: #65645f;
+      --soft: #8a8982;
+      --line: #dedbd2;
+      --accent: #8f3f2b;
+      --accent-soft: #f4e7df;
+      --card: linear-gradient(135deg, #f6eadf 0%, #efe8dd 48%, #e8dfd2 100%);
+    }
 
-    .panel-title {
-      font-weight: bold !important;
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(31, 31, 29, 0.24);
+      transition: color 140ms ease, border-color 140ms ease;
+    }
+
+    a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .page {
+      width: min(1080px, calc(100% - 40px));
+      margin: 32px auto;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+    }
+
+    .topbar {
+      padding: 24px 72px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .topbar a {
+      color: var(--muted);
+      width: fit-content;
+    }
+
+    .hero {
+      padding: 34px 72px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h1 {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(32px, 4vw, 44px);
+      line-height: 1.0;
+      letter-spacing: -0.045em;
+      margin: 0 0 10px;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .hero-note {
+      margin: 0;
+      max-width: 820px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .section {
+      padding: 30px 72px 52px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section:last-of-type { border-bottom: none; }
+
+    .section-header {
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(30px, 3.5vw, 40px);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .lecture-list {
+      display: grid;
+      gap: 14px;
+      max-width: 860px;
+    }
+
+    .lecture-card {
+      border: 1px solid #d2c6b8;
+      border-radius: 18px;
+      background: var(--card);
+      padding: 16px 21px;
+    }
+
+    .lecture-number {
+      color: var(--soft);
+      font-size: 13.5px;
+      line-height: 1.45;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .lecture-title {
+      margin: 0;
+      color: var(--ink);
+      font-size: 16.5px;
+      line-height: 1.3;
+      font-weight: 650;
+      letter-spacing: -0.015em;
+    }
+
+    .footer-nav {
+      padding: 28px 72px 72px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 12px 16px;
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .footer-nav a:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    @media (max-width: 860px) {
+      .page { width: min(100% - 24px, 1080px); margin: 16px auto; border-radius: 22px; }
+      .topbar, .hero, .section, .footer-nav { padding-left: 28px; padding-right: 28px; }
+      .topbar { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .hero { padding-top: 30px; padding-bottom: 20px; }
+      .section { padding-top: 26px; padding-bottom: 42px; }
+      .footer-nav { padding-bottom: 42px; }
     }
   </style>
-
 </head>
-
 <body>
+  <main class="page">
+    <div class="topbar">
+      <a href="teaching.html">← Teaching</a>
+      <a href="mailto:tandonr@arizona.edu">tandonr@arizona.edu</a>
+    </div>
 
-  <!-- navbar include -->
-  <div id="navbar-include"></div>
+    <section class="hero">
+      <h1>Trustworthy Machine Learning</h1>
+      <p class="hero-note">
+        ECE 696B, Spring 2025. Lecture slides and course materials.
+      </p>
+    </section>
 
-  <div class="spacer-div-3 hidden-xs hidden-xs"></div>
-
-  <!-- Main content    -->
-    <div id="main-container" class="container">
-
-    <div class="row">
-      <div class="col-sm-12">
-        
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Lecture Slides</h2>
       </div>
 
+      <div class="lecture-list">
+        <article class="lecture-card"><div class="lecture-number">Lecture 1</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-1-ECE696B-S25-Syllabus-Logistics.pdf">Syllabus &amp; Course Overview</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 2</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-2-N-Gram-RNN-LSTM-Seq2Seq.pdf">N-Grams, RNNs, LSTMs, Seq2Seq</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 3</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-3-Attention-and-Transformers.pdf">Attention Mechanism &amp; Transformers</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 4A</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-4A-BERT-Paper.pdf">BERT: Bidirectional Encoder Representations from Transformers</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 4B</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-4B-GPT-2-Paper.pdf">GPT-2: Language Models are Unsupervised Multitask Learners</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 5A</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-5A-Scaling-Laws-Paper.pdf">Scaling Laws for Neural Language Models</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 5B</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-5B-GPT-3-Paper.pdf">GPT-3: Language Models are Few-Shot Learners</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 6A</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-6A-FLAN-Paper.pdf">FLAN: Fine-tuned Language Models are Zero-Shot Learners</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 6B</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-6B-RLHF-Paper.pdf">RLHF: Training Language Models to Follow Instructions with Human Feedback</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 7A</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-7A-Codex-Paper.pdf">CODEX: Evaluating LLMs Trained on Code</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 7B</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-7B-Chain-of-Thought.pdf">Chain-of-Thought: Eliciting Reasoning in LLMs</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 8A</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-8A-LLaMa.pdf">LLaMA: Open and Efficient Foundation Language Models</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 8B</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-8B-RAG-Retrival-Augmented-Generation-Final.pdf">Retrieval-Augmented Generation (RAG)</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 9A</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-9A-Tree-of-thought.pdf">Tree-of-Thought</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 9B</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-9B-DeepSeek-R1.pdf">DeepSeek-R1 Paper</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 10</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-10-Jailbreaking-LLMs.pdf">Jailbreak Attacks: How Does LLM Safety Training Fail?</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 11A</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-11A-GCG-Jailbreaking-LLMs.pdf">Greedy Coordinate Gradient (GCG) Jailbreak</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 11B</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-11B-PAIR-Jailbreaking-Attack.pdf">PAIR: Prompt Automatic Iterative Refinement Jailbreak</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 12</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-12-SmoothLLM.pdf">SmoothLLM: Defending Large Language Models Against Jailbreaking Attacks</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 12B</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-12B-Rainbow-Teaming.pdf">Rainbow Teaming</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 13A</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-13A-Extracting-Training-Data-LLMs.pdf">Extracting Training Data from LLMs</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 13B</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-13B-Quantifying%20Memorization-LLMs.pdf">Quantifying Memorization in LLMs</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 14</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-14-LLMs%20encode%20clinical%20knowledge.pdf">LLMs Encode Clinical Knowledge</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 15A</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-15A-Scalable%20Extraction%20of%20Training%20Data%20from%20%28Production%29%20LLMs.pdf">Scalable Extraction of Training Data from Production LLMs</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 15B</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-15B-Scalable%20Extraction-Aligned-LLMs.pdf">Scalable Extraction from Aligned LLMs</a></h3></article>
+        <article class="lecture-card"><div class="lecture-number">Lecture 16</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-16-MIA-First-Principles.pdf">Membership Inference Attacks: First Principles</a></h3></article>
+      </div>
+    </section>
+
+    <div class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="students.html">Students</a>
     </div>
-    <div class="row push-down-1" id="projects">
-    <h3 class="push-down-3"><span> Trustworthy ML Course (Spring 2025): Lecture Slides</span></h3>
-      </ul-->
-        <p> 
-        Lecture 1. <a href="https://tandonravi.github.io
-/trustMLcourseslides/Lecture-1-ECE696B-S25-Syllabus-Logistics.pdf">Syllabus & Course Overview</a>
-        </p>
-        <p> 
-        Lecture 2. <a href="https://tandonravi.github.io
-/trustMLcourseslides/Lecture-2-N-Gram-RNN-LSTM-Seq2Seq.pdf">N-Grams, RNNs, LSTMs, Seq2Seq</a>
-        </p>
-        <p> 
-        Lecture 3. <a href="https://tandonravi.github.io
-/trustMLcourseslides/Lecture-3-Attention-and-Transformers.pdf">Attention Mechanism & Transformers</a>
-        </p>
-        <p> 
-        Lecture 4A. <a href="https://tandonravi.github.io
-/trustMLcourseslides/Lecture-4A-BERT-Paper.pdf">BERT (Bidirectional Encoder Representations from Transformers)</a>
-        </p>
-        <p> 
-        Lecture 4B. <a href="https://tandonravi.github.io
-/trustMLcourseslides/Lecture-4B-GPT-2-Paper.pdf">GPT-2 (Language Models are Unsupervised Multitask Learners)</a>
-        </p>
-<p> 
-        Lecture 5A. <a href="https://tandonravi.github.io
-/trustMLcourseslides/Lecture-5A-Scaling-Laws-Paper.pdf">Saling Laws (Scaling Laws for Neural Language Models)</a>
-        </p>
-        <p> 
-        Lecture 5B. <a href="https://tandonravi.github.io
-/trustMLcourseslides/Lecture-5B-GPT-3-Paper.pdf">GPT-3 (Language Models are Few shot Learners)</a>
-        </p>
-<p> 
-        Lecture 6A. <a href="https://tandonravi.github.io
-/trustMLcourseslides/Lecture-6A-FLAN-Paper.pdf">FLAN (Fine-tuning Language models are Zero-shot learners)</a>
-        </p>
-        <p> 
-        Lecture 6B. <a href="https://tandonravi.github.io
-/trustMLcourseslides/Lecture-6B-RLHF-Paper.pdf">RLHF (Training language models to follow instructions with human feedback)</a>
-        </p>
-<p> 
-        Lecture 7A. <a href="https://tandonravi.github.io
-/trustMLcourseslides/Lecture-7A-Codex-Paper.pdf">CODEX (Evaluating LLMs Trained on Code)</a>
-        </p>
-        <p> 
-        Lecture 7B. <a href="https://tandonravi.github.io
-/trustMLcourseslides/Lecture-7B-Chain-of-Thought.pdf">Chain-of-Thought (elicits reasoning in LLMs)</a>
-        </p>
-<p> 
-        Lecture 8A. <a href="https://tandonravi.github.io
-/trustMLcourseslides/Lecture-8A-LLaMa.pdf">LLaMa (Open and efficient foundation language models)</a>
-        </p>
-        <p> 
-        Lecture 8B. <a href="https://tandonravi.github.io
-/trustMLcourseslides/Lecture-8B-RAG-Retrival-Augmented-Generation-Final.pdf">Retrieval-Augmented-Generation (RAG) </a>
-        </p>
-<p> 
-        Lecture 9A. <a href="https://tandonravi.github.io
-/trustMLcourseslides/Lecture-9A-Tree-of-thought.pdf">Tree-of-Thought (Evaluating LLMs Trained on Code)</a>
-        </p>
-        <p> 
-        Lecture 9B. <a href="https://tandonravi.github.io
-/trustMLcourseslides/Lecture-9B-DeepSeek-R1.pdf">DeepSeek-R1 Paper</a>
-        </p>
-        <p> 
-        Lecture 10. <a href="https://tandonravi.github.io
-/trustMLcourseslides/Lecture-10-Jailbreaking-LLMs.pdf">Jailbreak attacks (How does LLM safety training fail?)</a>
-        </p>
-        <p> 
-        Lecture 11A. <a href="https://tandonravi.github.io
-/trustMLcourseslides/Lecture-11A-GCG-Jailbreaking-LLMs.pdf">Greedy Coordinate Gradient (GCG) Jailbreak</a>
-        </p>
-       <p> 
-        Lecture 11B. <a href="https://tandonravi.github.io
-/trustMLcourseslides/Lecture-11B-PAIR-Jailbreaking-Attack.pdf">PAIR (Prompt Automatic Iterative Refinement) Jailbreak</a>
-        </p>
-       
-        
-
-
-         
-
-        </ul> 
-
-
-
-
-  <!-- Back-to-top button -->
-  <a role="button" id="topper" data-toggle="tooltip" data-placement="top" title="Top" class="btn scroll-link" href="#top"><i class="fa fa-fw fa-2x fa-caret-up" aria-hidden="true"></i></a>
-
-  <!-- footer include -->
-  <div w3-include-html="footer.html"></div>
-
-  <!-- jQuery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-  <!-- Bootstrap JS Library -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-
-  <!-- html file include script | used for navbar and footer -->
-  <script src="js/w3data.js"></script>
-  <script>
-    w3IncludeHTML()
-  </script>
-
-  <!-- Local scripts -->
-  <script src="js/main.js"></script>
-
-  <script>
-
-  $(document).ready(function() {
-
-    $("#navbar-include").load("navbar.html", function() {
-
-      $("#home").removeClass("active");
-      $("#experience").addClass("active");
-
-    });
-
-  });
-
-
-  </script>
-
+  </main>
 </body>
-
 </html>
