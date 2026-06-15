@@ -126,9 +126,27 @@
     .course-theme:first-child { margin-top: 0; }
 
     .theme-header {
-      margin-bottom: 16px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--line);
+      display: inline-block;
+      max-width: 100%;
+      margin-bottom: 10px;
+      padding: 14px 18px;
+      border: 1px solid #d2c6b8;
+      border-radius: 14px;
+      background: var(--card);
+    }
+
+    .course-overview-header {
+      margin-bottom: 8px;
+    }
+
+    .course-overview-title {
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(23px, 2.8vw, 30px);
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      font-weight: 600;
+      color: var(--ink);
     }
 
     .theme-kicker {
@@ -158,24 +176,27 @@
     }
 
     .lecture-list {
-      display: grid;
-      gap: 14px;
       max-width: 860px;
     }
 
     .lecture-card {
-      border: 1px solid #d2c6b8;
-      border-radius: 18px;
-      background: var(--card);
-      padding: 16px 21px;
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 16px;
+      align-items: baseline;
+      padding: 13px 2px;
+      border-bottom: 1px solid var(--line);
     }
+
+    .lecture-card:last-child { border-bottom: none; }
 
     .lecture-number {
       color: var(--accent);
-      font-size: 14px;
+      font-size: 13.5px;
       line-height: 1.45;
       font-weight: 800;
-      margin-bottom: 6px;
+      margin: 0;
+      white-space: nowrap;
     }
 
     .lecture-title {
@@ -226,6 +247,7 @@
       .section { padding-top: 26px; padding-bottom: 42px; }
       .course-theme { margin-top: 30px; }
       .theme-description { font-size: 14px; }
+      .lecture-card { grid-template-columns: 1fr; gap: 3px; padding: 12px 2px; }
       .footer-nav { padding-bottom: 42px; }
     }
   </style>
@@ -242,14 +264,9 @@
     </section>
 
     <section class="section">
-      <div class="section-header">
-        <h2 class="section-title">Lecture Slides</h2>
-      </div>
-
       <div class="course-theme">
-        <div class="theme-header">
-          <p class="theme-kicker">Course Introduction</p>
-          <h3 class="theme-title">Overview and Course Structure</h3>
+        <div class="course-overview-header">
+          <h2 class="course-overview-title">Course Overview</h2>
         </div>
         <div class="lecture-list">
         <article class="lecture-card"><div class="lecture-number">Lecture 1</div><h3 class="lecture-title"><a href="https://tandonravi.github.io/trustMLcourseslides/Lecture-1-ECE696B-S25-Syllabus-Logistics.pdf">Syllabus &amp; Course Overview</a></h3></article>
@@ -258,7 +275,7 @@
 
       <div class="course-theme">
         <div class="theme-header">
-          <p class="theme-kicker">Topic I</p>
+          <p class="theme-kicker">Theme I</p>
           <h3 class="theme-title">Foundations of Modern Language Models</h3>
           <p class="theme-description">From classical sequence models to attention, transformers, and pretrained language models.</p>
         </div>
@@ -272,7 +289,7 @@
 
       <div class="course-theme">
         <div class="theme-header">
-          <p class="theme-kicker">Topic II</p>
+          <p class="theme-kicker">Theme II</p>
           <h3 class="theme-title">Scaling, Adaptation, and Alignment</h3>
           <p class="theme-description">Scaling laws, few-shot learning, instruction tuning, human feedback, and efficient open foundation models.</p>
         </div>
@@ -287,7 +304,7 @@
 
       <div class="course-theme">
         <div class="theme-header">
-          <p class="theme-kicker">Topic III</p>
+          <p class="theme-kicker">Theme III</p>
           <h3 class="theme-title">Capabilities, Reasoning, and Knowledge Augmentation</h3>
           <p class="theme-description">Specialized capabilities, explicit reasoning, retrieval, search over thought processes, and domain knowledge.</p>
         </div>
@@ -303,7 +320,7 @@
 
       <div class="course-theme">
         <div class="theme-header">
-          <p class="theme-kicker">Topic IV</p>
+          <p class="theme-kicker">Theme IV</p>
           <h3 class="theme-title">LLM Safety: Jailbreaking, Defenses, and Red Teaming</h3>
           <p class="theme-description">How safety training fails, how adversarial attacks are constructed, and how defenses and evaluation methods respond.</p>
         </div>
@@ -319,7 +336,7 @@
 
       <div class="course-theme">
         <div class="theme-header">
-          <p class="theme-kicker">Topic V</p>
+          <p class="theme-kicker">Theme V</p>
           <h3 class="theme-title">Privacy, Memorization, and Training-Data Leakage</h3>
           <p class="theme-description">Training-data extraction, memorization measurement, scalable attacks, and membership inference.</p>
         </div>
